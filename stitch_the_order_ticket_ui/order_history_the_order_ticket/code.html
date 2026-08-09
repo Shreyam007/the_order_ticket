@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order History</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Karla:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "outline-variant": "#d0c4bd",
+                        "on-tertiary-fixed-variant": "#255026",
+                        "on-error-container": "#93000a",
+                        "on-background": "#1c1c17",
+                        "on-surface-variant": "#4d4540",
+                        "secondary-fixed-dim": "#f4be45",
+                        "primary-fixed": "#ece0da",
+                        "error": "#ba1a1a",
+                        "tertiary-container": "#002e08",
+                        "surface": "#fcf9f0",
+                        "background": "#fcf9f0",
+                        "on-secondary-container": "#725300",
+                        "on-primary-container": "#958b86",
+                        "surface-container": "#f1eee5",
+                        "secondary": "#7a5900",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "surface-bright": "#fcf9f0",
+                        "on-secondary-fixed": "#261900",
+                        "inverse-on-surface": "#f4f1e8",
+                        "surface-dim": "#dddad1",
+                        "surface-container-highest": "#e5e2da",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#fdc74d",
+                        "primary-fixed-dim": "#cfc4be",
+                        "on-error": "#ffffff",
+                        "surface-container-high": "#ebe8df",
+                        "surface-variant": "#e5e2da",
+                        "secondary-fixed": "#ffdea1",
+                        "on-tertiary-container": "#6b9967",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#2b2521",
+                        "on-surface": "#1c1c17",
+                        "surface-tint": "#655d58",
+                        "inverse-surface": "#31312b",
+                        "on-tertiary-fixed": "#002204",
+                        "on-primary-fixed-variant": "#4d4541",
+                        "tertiary-fixed": "#bdf0b7",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f6f3ea",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#cfc4be",
+                        "outline": "#7f756f",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed-dim": "#a2d39c",
+                        "tertiary": "#001602",
+                        "on-primary-fixed": "#201a17",
+                        "primary": "#15100d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "margin-desktop": "32px",
+                        "unit": "4px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Barlow Condensed"],
+                        "body-lg": ["Karla"],
+                        "body-md": ["Karla"],
+                        "price-lg": ["JetBrains Mono"],
+                        "headline-lg": ["Barlow Condensed"],
+                        "headline-md": ["Barlow Condensed"],
+                        "display-xl": ["Barlow Condensed"],
+                        "data-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "price-lg": ["20px", { "lineHeight": "1.0", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "display-xl": ["48px", { "lineHeight": "1.1", "fontWeight": "700" }],
+                        "data-mono": ["14px", { "lineHeight": "1.4", "letterSpacing": "-0.02em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .clip-zigzag {
+            clip-path: polygon(
+                0% 0%, 100% 0%, 100% calc(100% - 8px),
+                calc(100% - 8px) 100%, calc(100% - 16px) calc(100% - 8px),
+                calc(100% - 24px) 100%, calc(100% - 32px) calc(100% - 8px),
+                calc(100% - 40px) 100%, calc(100% - 48px) calc(100% - 8px),
+                calc(100% - 56px) 100%, calc(100% - 64px) calc(100% - 8px),
+                calc(100% - 72px) 100%, calc(100% - 80px) calc(100% - 8px),
+                calc(100% - 88px) 100%, calc(100% - 96px) calc(100% - 8px),
+                calc(100% - 104px) 100%, calc(100% - 112px) calc(100% - 8px),
+                calc(100% - 120px) 100%, calc(100% - 128px) calc(100% - 8px),
+                calc(100% - 136px) 100%, calc(100% - 144px) calc(100% - 8px),
+                calc(100% - 152px) 100%, calc(100% - 160px) calc(100% - 8px),
+                calc(100% - 168px) 100%, calc(100% - 176px) calc(100% - 8px),
+                calc(100% - 184px) 100%, calc(100% - 192px) calc(100% - 8px),
+                calc(100% - 200px) 100%, calc(100% - 208px) calc(100% - 8px),
+                calc(100% - 216px) 100%, calc(100% - 224px) calc(100% - 8px),
+                calc(100% - 232px) 100%, calc(100% - 240px) calc(100% - 8px),
+                calc(100% - 248px) 100%, calc(100% - 256px) calc(100% - 8px),
+                calc(100% - 264px) 100%, calc(100% - 272px) calc(100% - 8px),
+                calc(100% - 280px) 100%, calc(100% - 288px) calc(100% - 8px),
+                calc(100% - 296px) 100%, calc(100% - 304px) calc(100% - 8px),
+                calc(100% - 312px) 100%, calc(100% - 320px) calc(100% - 8px),
+                calc(100% - 328px) 100%, calc(100% - 336px) calc(100% - 8px),
+                calc(100% - 344px) 100%, calc(100% - 352px) calc(100% - 8px),
+                calc(100% - 360px) 100%, calc(100% - 368px) calc(100% - 8px),
+                calc(100% - 376px) 100%, calc(100% - 384px) calc(100% - 8px),
+                calc(100% - 392px) 100%, calc(100% - 400px) calc(100% - 8px),
+                calc(100% - 408px) 100%, calc(100% - 416px) calc(100% - 8px),
+                calc(100% - 424px) 100%, calc(100% - 432px) calc(100% - 8px),
+                calc(100% - 440px) 100%, calc(100% - 448px) calc(100% - 8px),
+                calc(100% - 456px) 100%, calc(100% - 464px) calc(100% - 8px),
+                calc(100% - 472px) 100%, calc(100% - 480px) calc(100% - 8px),
+                calc(100% - 488px) 100%, calc(100% - 496px) calc(100% - 8px),
+                calc(100% - 504px) 100%, calc(100% - 512px) calc(100% - 8px),
+                calc(100% - 520px) 100%, calc(100% - 528px) calc(100% - 8px),
+                calc(100% - 536px) 100%, calc(100% - 544px) calc(100% - 8px),
+                calc(100% - 552px) 100%, calc(100% - 560px) calc(100% - 8px),
+                calc(100% - 568px) 100%, calc(100% - 576px) calc(100% - 8px),
+                calc(100% - 584px) 100%, calc(100% - 592px) calc(100% - 8px),
+                calc(100% - 600px) 100%, calc(100% - 608px) calc(100% - 8px),
+                calc(100% - 616px) 100%, calc(100% - 624px) calc(100% - 8px),
+                calc(100% - 632px) 100%, calc(100% - 640px) calc(100% - 8px),
+                calc(100% - 648px) 100%, calc(100% - 656px) calc(100% - 8px),
+                calc(100% - 664px) 100%, calc(100% - 672px) calc(100% - 8px),
+                calc(100% - 680px) 100%, calc(100% - 688px) calc(100% - 8px),
+                calc(100% - 696px) 100%, calc(100% - 704px) calc(100% - 8px),
+                calc(100% - 712px) 100%, calc(100% - 720px) calc(100% - 8px),
+                calc(100% - 728px) 100%, calc(100% - 736px) calc(100% - 8px),
+                calc(100% - 744px) 100%, calc(100% - 752px) calc(100% - 8px),
+                calc(100% - 760px) 100%, calc(100% - 768px) calc(100% - 8px),
+                calc(100% - 776px) 100%, calc(100% - 784px) calc(100% - 8px),
+                calc(100% - 792px) 100%, calc(100% - 800px) calc(100% - 8px),
+                0% calc(100% - 8px)
+            );
+        }
+        
+        .scissors-dash {
+            background-image: linear-gradient(to right, currentColor 50%, transparent 50%);
+            background-size: 16px 2px;
+            background-position: bottom;
+            background-repeat: repeat-x;
+        }
+
+        .dot-leader {
+            flex: 1;
+            background-image: radial-gradient(circle, currentColor 1px, transparent 1.5px);
+            background-size: 8px 8px;
+            background-position: center;
+            background-repeat: repeat-x;
+            margin: 0 8px;
+            height: 14px; /* matching font height */
+            opacity: 0.3;
+        }
+        
+        .hand-drawn-circle {
+            position: relative;
+            display: inline-block;
+            padding: 4px 12px;
+        }
+        
+        .hand-drawn-circle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 110%;
+            height: 120%;
+            transform: translate(-50%, -50%) rotate(-2deg);
+            border: 2px solid currentColor;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            pointer-events: none;
+        }
+        
+        .hand-drawn-circle.delivered {
+            color: #655d58; /* surface-tint */
+        }
+        
+        .hand-drawn-circle.cancelled {
+            color: #ba1a1a; /* error */
+        }
+        
+        .mechanical-clip {
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 12px;
+            background-color: #7f756f;
+            border: 1px solid #1c1c17;
+            border-radius: 4px 4px 0 0;
+            z-index: 10;
+        }
+        .mechanical-clip::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 8px;
+            background-color: #1c1c17;
+            border-radius: 0 0 4px 4px;
+        }
+
+    </style>
+</head>
+<body class="bg-surface-container-low text-primary font-body-md antialiased min-h-screen">
+<!-- Top Navigation (Web) -->
+<header class="bg-surface-container dark:bg-surface-container w-full border-b-2 border-primary dark:border-primary-fixed flex justify-between items-center px-margin-desktop h-16 z-50 fixed top-0 hidden md:flex">
+<div class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary dark:text-primary-fixed">
+            THE ORDER TICKET
+        </div>
+<nav class="flex h-full font-headline-md text-headline-md uppercase">
+<a class="h-full flex items-center px-6 text-on-surface-variant dark:text-on-primary-container hover:bg-primary hover:text-on-primary dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-colors duration-75 ease-in-out" href="#">Menu</a>
+<a class="h-full flex items-center px-6 text-on-surface-variant dark:text-on-primary-container hover:bg-primary hover:text-on-primary dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-colors duration-75 ease-in-out" href="#">Active Orders</a>
+<a class="h-full flex items-center px-6 text-on-surface dark:text-on-primary-fixed-variant border-x border-t border-primary dark:border-primary-fixed bg-surface dark:bg-surface-container-highest relative" href="#">
+<div class="mechanical-clip"></div>
+                History
+            </a>
+<a class="h-full flex items-center px-6 text-on-surface-variant dark:text-on-primary-container hover:bg-primary hover:text-on-primary dark:hover:bg-primary-fixed dark:hover:text-on-primary-fixed transition-colors duration-75 ease-in-out" href="#">Support</a>
+</nav>
+<div class="flex items-center text-primary dark:text-primary-fixed">
+<button class="p-2 hover:bg-primary hover:text-on-primary transition-colors duration-75 ease-in-out">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</div>
+</header>
+<!-- Side Navigation (Web - Hidden if using TopNav, but requested in prompt, so hybrid layout) -->
+<!-- Assuming "SideNavBar" from components was specifically requested for the "Expo Rail" feel -->
+<aside class="fixed left-0 top-0 h-full w-64 z-40 hidden md:flex flex-col bg-surface dark:bg-surface-dim border-r-2 border-primary dark:border-primary-fixed pt-16">
+<div class="p-6 border-b-2 border-primary dark:border-primary-fixed">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-surface-container-high rounded-sm border-2 border-primary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A gritty, high-contrast black and white portrait of a chef in a bustling industrial kitchen, illuminated by harsh overhead fluorescent lights, showcasing a utilitarian aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBidNOYLsBT0e4xaku62Tt-1XxdTb24Mxk2XgBNPW0RHSUbaPelcdzUcg6bote-7aKf_n6lft2whUpqbJ9cQxWmfnYOIN4njuvmtBZk8kt3_piJbhVExbiD8goMOh0Q6WoXBjgilNPbIxa3uiIZzSnNYxssxNCJln023Yd4149C3becTe9Z6jGs3XHYTbRsMQHhqNknDpncJFHSTQlnANgsq841qFtzYw7lgFe9yFZCZ0kCCne4PzQm"/>
+</div>
+<div>
+<h2 class="font-headline-md text-headline-md text-primary dark:text-primary-fixed leading-none">Station 1</h2>
+<p class="font-data-mono text-data-mono text-on-surface-variant uppercase mt-1">Main Line</p>
+</div>
+</div>
+<button class="mt-6 w-full border-2 border-primary bg-primary text-on-primary font-label-caps text-label-caps py-3 uppercase hover:bg-surface hover:text-primary transition-colors">
+                New Order
+            </button>
+</div>
+<nav class="flex-1 flex flex-col pt-4">
+<a class="flex items-center gap-4 px-6 py-4 font-label-caps text-label-caps text-on-surface-variant dark:text-on-primary-fixed-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined">assignment_late</span>
+<span>Expedite</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 font-label-caps text-label-caps text-on-surface-variant dark:text-on-primary-fixed-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span>Prep List</span>
+</a>
+<!-- History Tab conceptually mapped to Inventory or similar for this layout, replacing with History to match prompt exactly -->
+<a class="flex items-center gap-4 px-6 py-4 font-label-caps text-label-caps bg-secondary-container dark:bg-secondary text-on-secondary-container dark:text-on-secondary border-y border-primary dark:border-primary-fixed font-bold relative" href="#">
+<div class="mechanical-clip" style="left: 0; top: 50%; transform: translateY(-50%) rotate(90deg); transform-origin: left center;"></div>
+<span class="material-symbols-outlined">history</span>
+<span>History</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 font-label-caps text-label-caps text-on-surface-variant dark:text-on-primary-fixed-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined">groups</span>
+<span>Staff</span>
+</a>
+<a class="flex items-center gap-4 px-6 py-4 font-label-caps text-label-caps text-on-surface-variant dark:text-on-primary-fixed-variant hover:bg-surface-container-high dark:hover:bg-surface-container-highest transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="p-4 border-t-2 border-primary dark:border-primary-fixed">
+<a class="flex items-center gap-4 px-2 py-2 font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+<span>Log Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:pl-64 pt-16 md:pt-16 min-h-screen flex flex-col">
+<!-- Header Section -->
+<div class="px-margin-mobile md:px-margin-desktop py-8 md:py-12 border-b border-outline-variant bg-surface-container-low relative">
+<div class="max-w-container-max mx-auto">
+<h1 class="font-display-xl text-display-xl uppercase text-primary mb-2 tracking-tight">
+                    ORDER HISTORY
+                </h1>
+<p class="font-data-mono text-data-mono text-on-surface-variant">
+                    18 ORDERS PLACED
+                </p>
+</div>
+</div>
+<!-- Filter Row (Expo Rail Style) -->
+<div class="px-margin-mobile md:px-margin-desktop py-4 bg-surface border-b border-outline-variant overflow-x-auto whitespace-nowrap scrollbar-hide">
+<div class="max-w-container-max mx-auto flex items-center gap-4">
+<!-- Date Range -->
+<div class="inline-flex items-center border border-outline bg-surface-container-lowest h-10 px-3 relative group hover:border-primary transition-colors">
+<span class="material-symbols-outlined text-on-surface-variant mr-2 text-[20px]">calendar_today</span>
+<input class="bg-transparent border-none p-0 font-data-mono text-data-mono focus:ring-0 w-48 text-primary placeholder:text-outline" placeholder="OCT 2023 - NOV 2023" readonly="" type="text"/>
+</div>
+<!-- Search -->
+<div class="inline-flex items-center border border-outline bg-surface-container-lowest h-10 px-3 relative group hover:border-primary transition-colors flex-1 min-w-[200px] max-w-md">
+<span class="material-symbols-outlined text-on-surface-variant mr-2 text-[20px]">search</span>
+<input class="bg-transparent border-none p-0 font-label-caps text-label-caps uppercase focus:ring-0 w-full text-primary placeholder:text-outline" placeholder="SEARCH RESTAURANT..." type="text"/>
+</div>
+<!-- Status Tags -->
+<div class="inline-flex items-center gap-2 border-l border-outline-variant pl-4">
+<button class="h-10 px-4 bg-primary text-on-primary font-label-caps text-label-caps uppercase border-2 border-primary">
+                        ALL
+                    </button>
+<button class="h-10 px-4 bg-surface-container-lowest text-on-surface-variant font-label-caps text-label-caps uppercase border border-outline hover:border-primary hover:text-primary transition-colors relative group">
+<div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-4 h-2 bg-surface border border-outline border-b-0 hidden group-hover:block rounded-t-sm"></div>
+                        DELIVERED
+                    </button>
+<button class="h-10 px-4 bg-surface-container-lowest text-on-surface-variant font-label-caps text-label-caps uppercase border border-outline hover:border-primary hover:text-primary transition-colors relative group">
+<div class="absolute -top-1.5 left-1/2 -translate-x-1/2 w-4 h-2 bg-surface border border-outline border-b-0 hidden group-hover:block rounded-t-sm"></div>
+                        CANCELLED
+                    </button>
+</div>
+</div>
+</div>
+<!-- Orders List -->
+<div class="flex-1 p-margin-mobile md:p-margin-desktop bg-surface-container-low">
+<div class="max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter items-start">
+<!-- Order Ticket Card 1 -->
+<article class="bg-surface-container-lowest border border-primary relative clip-zigzag pb-6 transition-transform hover:-translate-y-1 duration-200">
+<!-- Luggage Tag Status -->
+<div class="absolute -right-[1px] top-4 bg-surface-container-high border-y border-l border-primary px-3 py-1 font-label-caps text-label-caps uppercase flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-surface-tint"></div>
+                        Completed
+                    </div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md uppercase text-primary mb-1 w-3/4 truncate">
+                            THE SPICE ROUTE KITCHEN
+                        </h3>
+<p class="font-data-mono text-data-mono text-on-surface-variant mb-6">
+                            24 OCT 2023, 19:42
+                        </p>
+<div class="scissors-dash w-full h-[2px] mb-6"></div>
+<div class="flex items-center font-data-mono text-data-mono text-primary mb-8">
+<span>3 ITEMS</span>
+<div class="dot-leader"></div>
+<span>₹740</span>
+</div>
+<div class="flex justify-between items-center mb-8">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant">STATUS</span>
+<span class="font-headline-md text-headline-md uppercase hand-drawn-circle delivered inline-block transform -rotate-2">
+                                DELIVERED
+                            </span>
+</div>
+<div class="flex flex-col gap-2">
+<button class="w-full bg-[#D9A62E] hover:bg-secondary-fixed text-primary border-2 border-primary font-label-caps text-label-caps uppercase py-3 flex justify-between items-center px-4 transition-colors">
+<span>REORDER</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-full bg-transparent hover:bg-surface-container text-primary border border-outline font-label-caps text-label-caps uppercase py-3 transition-colors">
+                                VIEW RECEIPT
+                            </button>
+</div>
+</div>
+</article>
+<!-- Order Ticket Card 2 -->
+<article class="bg-surface-container-lowest border border-primary relative clip-zigzag pb-6 transition-transform hover:-translate-y-1 duration-200">
+<div class="absolute -right-[1px] top-4 bg-surface-container-high border-y border-l border-primary px-3 py-1 font-label-caps text-label-caps uppercase flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-error"></div>
+                        Voided
+                    </div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md uppercase text-primary mb-1 w-3/4 truncate">
+                            BURGER BRIGADE
+                        </h3>
+<p class="font-data-mono text-data-mono text-on-surface-variant mb-6">
+                            21 OCT 2023, 13:15
+                        </p>
+<div class="scissors-dash w-full h-[2px] mb-6"></div>
+<div class="flex items-center font-data-mono text-data-mono text-primary mb-8">
+<span>2 ITEMS</span>
+<div class="dot-leader"></div>
+<span>₹450</span>
+</div>
+<div class="flex justify-between items-center mb-8">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant">STATUS</span>
+<span class="font-headline-md text-headline-md uppercase hand-drawn-circle cancelled inline-block transform rotate-1">
+                                CANCELLED
+                            </span>
+</div>
+<div class="flex flex-col gap-2">
+<button class="w-full bg-[#D9A62E] hover:bg-secondary-fixed text-primary border-2 border-primary font-label-caps text-label-caps uppercase py-3 flex justify-between items-center px-4 transition-colors">
+<span>REORDER</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-full bg-transparent hover:bg-surface-container text-primary border border-outline font-label-caps text-label-caps uppercase py-3 transition-colors">
+                                VIEW RECEIPT
+                            </button>
+</div>
+</div>
+</article>
+<!-- Order Ticket Card 3 -->
+<article class="bg-surface-container-lowest border border-primary relative clip-zigzag pb-6 transition-transform hover:-translate-y-1 duration-200">
+<div class="absolute -right-[1px] top-4 bg-surface-container-high border-y border-l border-primary px-3 py-1 font-label-caps text-label-caps uppercase flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-surface-tint"></div>
+                        Completed
+                    </div>
+<div class="p-6">
+<h3 class="font-headline-md text-headline-md uppercase text-primary mb-1 w-3/4 truncate">
+                            NOODLE CARTEL
+                        </h3>
+<p class="font-data-mono text-data-mono text-on-surface-variant mb-6">
+                            15 OCT 2023, 20:30
+                        </p>
+<div class="scissors-dash w-full h-[2px] mb-6"></div>
+<div class="flex items-center font-data-mono text-data-mono text-primary mb-8">
+<span>4 ITEMS</span>
+<div class="dot-leader"></div>
+<span>₹1120</span>
+</div>
+<div class="flex justify-between items-center mb-8">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-on-surface-variant">STATUS</span>
+<span class="font-headline-md text-headline-md uppercase hand-drawn-circle delivered inline-block transform -rotate-1">
+                                DELIVERED
+                            </span>
+</div>
+<div class="flex flex-col gap-2">
+<button class="w-full bg-[#D9A62E] hover:bg-secondary-fixed text-primary border-2 border-primary font-label-caps text-label-caps uppercase py-3 flex justify-between items-center px-4 transition-colors">
+<span>REORDER</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-full bg-transparent hover:bg-surface-container text-primary border border-outline font-label-caps text-label-caps uppercase py-3 transition-colors">
+                                VIEW RECEIPT
+                            </button>
+</div>
+</div>
+</article>
+</div>
+</div>
+</main>
+<!-- Bottom Navigation (Mobile) -->
+<nav class="fixed bottom-0 left-0 w-full h-16 z-50 flex justify-around items-stretch md:hidden border-t-2 border-primary dark:border-primary-fixed bg-surface dark:bg-surface-container">
+<a class="text-primary dark:text-primary-fixed flex flex-col items-center justify-center px-4 hover:bg-surface-container-highest dark:hover:bg-surface-dim active:translate-y-1 transition-all font-label-caps text-label-caps flex-1" href="#">
+<span class="material-symbols-outlined mb-1">receipt_long</span>
+            Tickets
+        </a>
+<a class="text-primary dark:text-primary-fixed flex flex-col items-center justify-center px-4 hover:bg-surface-container-highest dark:hover:bg-surface-dim active:translate-y-1 transition-all font-label-caps text-label-caps flex-1" href="#">
+<span class="material-symbols-outlined mb-1">restaurant</span>
+            Menu
+        </a>
+<a class="bg-primary dark:bg-primary-fixed text-on-primary dark:text-on-primary-fixed font-bold h-full flex flex-col items-center justify-center px-4 active:translate-y-1 transition-all font-label-caps text-label-caps flex-1" href="#">
+<span class="material-symbols-outlined mb-1">history</span> <!-- Contextual override for Order History page -->
+            History
+        </a>
+<a class="text-primary dark:text-primary-fixed flex flex-col items-center justify-center px-4 hover:bg-surface-container-highest dark:hover:bg-surface-dim active:translate-y-1 transition-all font-label-caps text-label-caps flex-1" href="#">
+<span class="material-symbols-outlined mb-1">person</span>
+            Account
+        </a>
+</nav>
+</body></html>

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Burger Joint - Menu</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=JetBrains+Mono:wght@500;700&amp;family=Karla:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-container": "#f1eee5",
+                "primary-fixed": "#ece0da",
+                "on-background": "#1c1c17",
+                "surface": "#fcf9f0",
+                "tertiary-fixed-dim": "#a2d39c",
+                "primary": "#15100d",
+                "surface-tint": "#655d58",
+                "primary-container": "#2b2521",
+                "error": "#ba1a1a",
+                "inverse-surface": "#31312b",
+                "secondary-fixed": "#ffdea1",
+                "on-secondary-fixed": "#261900",
+                "surface-variant": "#e5e2da",
+                "secondary-container": "#fdc74d",
+                "secondary": "#7a5900",
+                "on-secondary": "#ffffff",
+                "background": "#fcf9f0",
+                "on-secondary-container": "#725300",
+                "on-primary-fixed-variant": "#4d4541",
+                "surface-container-low": "#f6f3ea",
+                "outline": "#7f756f",
+                "on-surface-variant": "#4d4540",
+                "surface-dim": "#dddad1",
+                "inverse-primary": "#cfc4be",
+                "on-tertiary-fixed-variant": "#255026",
+                "error-container": "#ffdad6",
+                "tertiary-container": "#002e08",
+                "on-surface": "#1c1c17",
+                "on-secondary-fixed-variant": "#5c4300",
+                "tertiary-fixed": "#bdf0b7",
+                "on-error": "#ffffff",
+                "on-tertiary-container": "#6b9967",
+                "on-tertiary": "#ffffff",
+                "on-primary": "#ffffff",
+                "surface-container-highest": "#e5e2da",
+                "inverse-on-surface": "#f4f1e8",
+                "on-primary-container": "#958b86",
+                "surface-bright": "#fcf9f0",
+                "on-tertiary-fixed": "#002204",
+                "surface-container-high": "#ebe8df",
+                "tertiary": "#001602",
+                "on-primary-fixed": "#201a17",
+                "on-error-container": "#93000a",
+                "surface-container-lowest": "#ffffff",
+                "secondary-fixed-dim": "#f4be45",
+                "primary-fixed-dim": "#cfc4be",
+                "outline-variant": "#d0c4bd"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "margin-desktop": "32px",
+                "margin-mobile": "16px",
+                "container-max": "1280px",
+                "gutter": "16px",
+                "unit": "4px"
+        },
+        "fontFamily": {
+                "label-caps": [
+                        "Barlow Condensed",
+                        "sans-serif"
+                ],
+                "body-md": [
+                        "Karla",
+                        "sans-serif"
+                ],
+                "price-lg": [
+                        "JetBrains Mono",
+                        "monospace"
+                ],
+                "data-mono": [
+                        "JetBrains Mono",
+                        "monospace"
+                ],
+                "headline-md": [
+                        "Barlow Condensed",
+                        "sans-serif"
+                ],
+                "display-xl": [
+                        "Barlow Condensed",
+                        "sans-serif"
+                ],
+                "headline-lg": [
+                        "Barlow Condensed",
+                        "sans-serif"
+                ],
+                "body-lg": [
+                        "Karla",
+                        "sans-serif"
+                ]
+        },
+        "fontSize": {
+                "label-caps": [
+                        "14px",
+                        {
+                                "lineHeight": "1.0",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ],
+                "price-lg": [
+                        "20px",
+                        {
+                                "lineHeight": "1.0",
+                                "fontWeight": "700"
+                        }
+                ],
+                "data-mono": [
+                        "14px",
+                        {
+                                "lineHeight": "1.4",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "600"
+                        }
+                ],
+                "display-xl": [
+                        "48px",
+                        {
+                                "lineHeight": "1.1",
+                                "fontWeight": "700"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+    /* Industrial Kitchen Utilitarian Aesthetics */
+    body {
+        background-color: theme('colors.surface-container-low');
+        color: theme('colors.primary-container');
+    }
+    
+    .border-strong {
+        border-width: 2px;
+        border-color: theme('colors.primary-container');
+        border-style: solid;
+    }
+
+    .border-hairline {
+        border-width: 1px;
+        border-color: theme('colors.outline');
+        border-style: solid;
+    }
+
+    .border-b-hairline {
+        border-bottom-width: 1px;
+        border-bottom-color: theme('colors.outline');
+        border-bottom-style: solid;
+    }
+
+    .zigzag-bottom {
+        clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 98% 95%, 96% 100%, 94% 95%, 92% 100%, 90% 95%, 88% 100%, 86% 95%, 84% 100%, 82% 95%, 80% 100%, 78% 95%, 76% 100%, 74% 95%, 72% 100%, 70% 95%, 68% 100%, 66% 95%, 64% 100%, 62% 95%, 60% 100%, 58% 95%, 56% 100%, 54% 95%, 52% 100%, 50% 95%, 48% 100%, 46% 95%, 44% 100%, 42% 95%, 40% 100%, 38% 95%, 36% 100%, 34% 95%, 32% 100%, 30% 95%, 28% 100%, 26% 95%, 24% 100%, 22% 95%, 20% 100%, 18% 95%, 16% 100%, 14% 95%, 12% 100%, 10% 95%, 8% 100%, 6% 95%, 4% 100%, 2% 95%, 0% 100%);
+    }
+
+    .zigzag-top {
+        clip-path: polygon(0% 5%, 2% 0%, 4% 5%, 6% 0%, 8% 5%, 10% 0%, 12% 5%, 14% 0%, 16% 5%, 18% 0%, 20% 5%, 22% 0%, 24% 5%, 26% 0%, 28% 5%, 30% 0%, 32% 5%, 34% 0%, 36% 5%, 38% 0%, 40% 5%, 42% 0%, 44% 5%, 46% 0%, 48% 5%, 50% 0%, 52% 5%, 54% 0%, 56% 5%, 58% 0%, 60% 5%, 62% 0%, 64% 5%, 66% 0%, 68% 5%, 70% 0%, 72% 5%, 74% 0%, 76% 5%, 78% 0%, 80% 5%, 82% 0%, 84% 5%, 86% 0%, 88% 5%, 90% 0%, 92% 5%, 94% 0%, 96% 5%, 98% 0%, 100% 5%, 100% 100%, 0% 100%);
+    }
+
+    .dot-leader {
+        background-image: radial-gradient(theme('colors.primary-container') 1px, transparent 1px);
+        background-size: 8px 8px;
+        background-position: bottom;
+        background-repeat: repeat-x;
+        height: 1em;
+        margin: 0 8px;
+    }
+
+    .tag-mustard {
+        background-color: theme('colors.secondary-container');
+        color: theme('colors.on-secondary-container');
+    }
+
+    .veg-dot {
+        width: 12px;
+        height: 12px;
+        border: 1px solid #1e7e34;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+    }
+    .veg-dot::after {
+        content: '';
+        width: 6px;
+        height: 6px;
+        background-color: #1e7e34;
+        border-radius: 50%;
+    }
+
+    .non-veg-dot {
+        width: 12px;
+        height: 12px;
+        border: 1px solid #c92a2a;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 2px;
+    }
+    .non-veg-dot::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-bottom: 6px solid #c92a2a;
+    }
+    
+    .btn-sq {
+        width: 32px;
+        height: 32px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    
+    .btn-sq-action {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Top Nav specific styles to hide on mobile */
+    .desktop-nav-shell {
+        display: none;
+    }
+    @media (min-width: 768px) {
+        .desktop-nav-shell {
+            display: flex;
+        }
+    }
+</style>
+</head>
+<body class="antialiased min-h-screen pb-32">
+<!-- Header Section -->
+<header class="relative bg-surface-container border-b-2 border-primary-container">
+<!-- Cover Image -->
+<div class="h-48 md:h-64 w-full relative">
+<img class="w-full h-full object-cover" data-alt="A rustic, bustling high-end industrial kitchen in action. Stainless steel counters, glowing warm incandescent lights, heavy-duty cooking equipment. A sense of organized chaos and utilitarian efficiency. Deep blacks, crisp whites, and warm earthy tones. High contrast, sharp focus, professional photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAyMWF1x_rQYVMQG5bkK0C5ceIoeUmq9xGwpRSUuz9XaIxu_BOUo3n76k3l9Ko00YoQqUteHCYfNQF2qswtvX6CSCuHq5vZe1n5brsM1sLxkoyWQkzOvyi7X9s2E_akMS7MCOUTOpuLB_YbvqSIcUjvKPeAw1XMKtfiS9Sbi38hY3gS5UVgJFsbxv_5oYYN7Tv-SI5ahwZghb2iyL4xkd3RFvsCwYIKH1lkLyV7gVmceUDg-nmeb4y3"/>
+<div class="absolute inset-0 bg-primary/20"></div>
+<!-- Top App Bar Content overlaid (as requested by JSON semantic mapping, though simplified here for layout context) -->
+<nav class="desktop-nav-shell absolute top-0 left-0 w-full px-margin-desktop h-16 flex justify-between items-center text-primary-fixed z-10 bg-primary-container/80 border-b-2 border-primary">
+<div class="font-headline-lg text-headline-lg tracking-tighter uppercase">THE ORDER TICKET</div>
+<div class="flex gap-6 font-headline-md text-headline-md uppercase">
+<a class="text-outline-variant opacity-70 hover:text-on-primary transition-colors duration-150" href="#">Home</a>
+<a class="text-outline-variant opacity-70 hover:text-on-primary transition-colors duration-150" href="#">Orders</a>
+<a class="text-outline-variant opacity-70 hover:text-on-primary transition-colors duration-150" href="#">Profile</a>
+</div>
+<div>
+<span class="material-symbols-outlined hover:text-on-primary cursor-pointer">shopping_cart</span>
+</div>
+</nav>
+</div>
+<!-- Restaurant Info -->
+<div class="px-margin-mobile md:px-margin-desktop py-6 relative">
+<!-- Luggage Tag -->
+<div class="absolute top-0 right-margin-mobile md:right-margin-desktop -mt-4 tag-mustard border-strong px-3 py-1 font-label-caps text-label-caps uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">local_fire_department</span>
+                Bestseller
+            </div>
+<h1 class="font-display-xl text-display-xl uppercase tracking-tight text-primary-container mb-2">THE BURGER JOINT</h1>
+<div class="flex items-center gap-2 font-body-md text-body-md text-on-surface-variant mb-1">
+<span class="font-bold">Artisan Burgers · American</span>
+</div>
+<div class="flex items-center gap-2 font-body-md text-body-md text-on-surface-variant">
+<span class="material-symbols-outlined text-[18px] text-secondary-container" style="font-variation-settings: 'FILL' 1;">star</span>
+<span>4.8 (200+ reviews)</span>
+</div>
+</div>
+</header>
+<!-- Category Nav -->
+<nav class="sticky top-0 z-40 bg-surface-container-low border-b-2 border-primary-container overflow-x-auto">
+<div class="flex px-margin-mobile md:px-margin-desktop min-w-max">
+<a class="px-6 py-4 font-headline-md text-headline-md uppercase text-outline hover:bg-surface-variant transition-colors border-r border-hairline" href="#">STARTERS</a>
+<a class="px-6 py-4 font-headline-md text-headline-md uppercase text-primary-container bg-surface border-b-4 border-b-secondary-container border-r border-hairline relative" href="#">
+<!-- Bulldog Clip indicator logic requested in style guide -->
+<span class="material-symbols-outlined absolute -top-3 left-1/2 -translate-x-1/2 text-primary-container bg-surface-container-low rounded-full px-1">attach_file</span>
+                MAINS
+            </a>
+<a class="px-6 py-4 font-headline-md text-headline-md uppercase text-outline hover:bg-surface-variant transition-colors border-r border-hairline" href="#">DESSERTS</a>
+<a class="px-6 py-4 font-headline-md text-headline-md uppercase text-outline hover:bg-surface-variant transition-colors" href="#">DRINKS</a>
+</div>
+</nav>
+<!-- Menu List -->
+<main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8">
+<div class="flex flex-col gap-6">
+<!-- Row 1 -->
+<div class="flex justify-between items-start group">
+<div class="flex-1 pr-4">
+<div class="flex items-baseline mb-1">
+<div class="non-veg-dot mr-2 flex-shrink-0" title="Non-Vegetarian"></div>
+<h3 class="font-headline-lg text-headline-lg uppercase text-primary-container m-0">Classic Cheeseburger</h3>
+<div class="flex text-error ml-2 text-sm" title="Spicy Level 2">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div class="dot-leader flex-1"></div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Double smashed patty, aged cheddar, special sauce</p>
+</div>
+<div class="flex flex-col items-end gap-2 shrink-0">
+<span class="font-price-lg text-price-lg text-primary-container">₹450</span>
+<button class="btn-sq btn-sq-action border-strong font-data-mono text-data-mono text-primary-container hover:bg-primary-container hover:text-surface-container transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="flex justify-between items-start group">
+<div class="flex-1 pr-4">
+<div class="flex items-baseline mb-1">
+<div class="veg-dot mr-2 flex-shrink-0" title="Vegetarian"></div>
+<h3 class="font-headline-lg text-headline-lg uppercase text-primary-container m-0">Truffle Fries</h3>
+<div class="dot-leader flex-1"></div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Thick cut, white truffle oil, parm</p>
+</div>
+<div class="flex flex-col items-end gap-2 shrink-0">
+<span class="font-price-lg text-price-lg text-primary-container">₹220</span>
+<div class="flex border-strong bg-surface">
+<button class="btn-sq font-data-mono text-data-mono text-primary-container hover:bg-surface-variant border-r-2 border-primary-container">
+<span class="material-symbols-outlined text-[18px]">remove</span>
+</button>
+<div class="btn-sq font-data-mono text-data-mono text-primary-container font-bold bg-surface-container">1</div>
+<button class="btn-sq font-data-mono text-data-mono text-primary-container hover:bg-surface-variant border-l-2 border-primary-container">
+<span class="material-symbols-outlined text-[18px]">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="flex justify-between items-start group">
+<div class="flex-1 pr-4">
+<div class="flex items-baseline mb-1">
+<div class="non-veg-dot mr-2 flex-shrink-0" title="Non-Vegetarian"></div>
+<h3 class="font-headline-lg text-headline-lg uppercase text-primary-container m-0">Spicy Fried Chicken</h3>
+<div class="flex text-error ml-2 text-sm" title="Spicy Level 3">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div class="dot-leader flex-1"></div>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Nashville style hot honey, slaw</p>
+</div>
+<div class="flex flex-col items-end gap-2 shrink-0">
+<span class="font-price-lg text-price-lg text-primary-container">₹480</span>
+<button class="btn-sq btn-sq-action border-strong font-data-mono text-data-mono text-primary-container hover:bg-primary-container hover:text-surface-container transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Divider -->
+<div class="mt-12 mb-8 text-center text-outline font-label-caps text-label-caps flex items-center justify-center gap-2">
+<div class="flex-1 border-b-2 border-dashed border-outline"></div>
+<span class="material-symbols-outlined text-[16px] rotate-180">content_cut</span>
+<span>ORDER DETAILS</span>
+<div class="flex-1 border-b-2 border-dashed border-outline"></div>
+</div>
+</main>
+<!-- Floating Action Bar (View Cart) -->
+<div class="fixed bottom-0 left-0 w-full z-50 zigzag-top bg-surface border-t-2 border-primary-container pt-6 pb-4 px-margin-mobile md:px-margin-desktop shadow-[0_-10px_20px_rgba(0,0,0,0.05)]">
+<div class="max-w-container-max mx-auto flex justify-between items-center">
+<div class="font-data-mono text-data-mono text-primary-container font-bold flex flex-col sm:flex-row sm:gap-4 sm:items-center">
+<span>2 ITEMS</span>
+<span class="hidden sm:inline">·</span>
+<span class="font-price-lg text-price-lg">₹670</span>
+</div>
+<button class="tag-mustard border-strong px-6 py-3 font-label-caps text-label-caps uppercase hover:bg-primary-container hover:text-surface-container transition-colors flex items-center gap-2">
+                VIEW CART
+                <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</body></html>

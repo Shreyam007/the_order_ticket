@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout - The Order Ticket</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Karla:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-tint": "#655d58",
+                        "secondary-fixed-dim": "#f4be45",
+                        "tertiary-fixed": "#bdf0b7",
+                        "on-error-container": "#93000a",
+                        "primary": "#15100d",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#958b86",
+                        "tertiary": "#001602",
+                        "inverse-on-surface": "#f4f1e8",
+                        "on-surface": "#1c1c17",
+                        "on-primary": "#ffffff",
+                        "on-tertiary-container": "#6b9967",
+                        "surface-dim": "#dddad1",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#725300",
+                        "error-container": "#ffdad6",
+                        "primary-fixed": "#ece0da",
+                        "on-primary-fixed-variant": "#4d4541",
+                        "inverse-primary": "#cfc4be",
+                        "surface-variant": "#e5e2da",
+                        "on-secondary-fixed": "#261900",
+                        "on-surface-variant": "#4d4540",
+                        "background": "#fcf9f0",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#002e08",
+                        "inverse-surface": "#31312b",
+                        "surface-container-low": "#f6f3ea",
+                        "on-tertiary-fixed-variant": "#255026",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "on-error": "#ffffff",
+                        "on-background": "#1c1c17",
+                        "surface-bright": "#fcf9f0",
+                        "primary-fixed-dim": "#cfc4be",
+                        "secondary-container": "#fdc74d",
+                        "outline-variant": "#d0c4bd",
+                        "surface": "#fcf9f0",
+                        "on-primary-fixed": "#201a17",
+                        "tertiary-fixed-dim": "#a2d39c",
+                        "on-tertiary-fixed": "#002204",
+                        "outline": "#7f756f",
+                        "surface-container": "#f1eee5",
+                        "secondary-fixed": "#ffdea1",
+                        "secondary": "#7a5900",
+                        "surface-container-highest": "#e5e2da",
+                        "surface-container-high": "#ebe8df",
+                        "primary-container": "#2b2521",
+                        "mustard": "#D9A62E",
+                        "kraft": "#F6F3EA",
+                        "ink": "#2B2521",
+                        "brick": "#A83A2C"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "4px",
+                        "lg": "4px",
+                        "xl": "4px",
+                        "full": "4px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "margin-desktop": "32px",
+                        "gutter": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Barlow Condensed"],
+                        "body-md": ["Karla"],
+                        "body-lg": ["Karla"],
+                        "price-lg": ["JetBrains Mono"],
+                        "display-xl": ["Barlow Condensed"],
+                        "data-mono": ["JetBrains Mono"],
+                        "headline-md": ["Barlow Condensed"],
+                        "headline-lg": ["Barlow Condensed"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "price-lg": ["20px", { "lineHeight": "1.0", "fontWeight": "700" }],
+                        "display-xl": ["48px", { "lineHeight": "1.1", "fontWeight": "700" }],
+                        "data-mono": ["14px", { "lineHeight": "1.4", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .zigzag-bottom {
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), 98% 100%, 96% calc(100% - 10px), 94% 100%, 92% calc(100% - 10px), 90% 100%, 88% calc(100% - 10px), 86% 100%, 84% calc(100% - 10px), 82% 100%, 80% calc(100% - 10px), 78% 100%, 76% calc(100% - 10px), 74% 100%, 72% calc(100% - 10px), 70% 100%, 68% calc(100% - 10px), 66% 100%, 64% calc(100% - 10px), 62% 100%, 60% calc(100% - 10px), 58% 100%, 56% calc(100% - 10px), 54% 100%, 52% calc(100% - 10px), 50% 100%, 48% calc(100% - 10px), 46% 100%, 44% calc(100% - 10px), 42% 100%, 40% calc(100% - 10px), 38% 100%, 36% calc(100% - 10px), 34% 100%, 32% calc(100% - 10px), 30% 100%, 28% calc(100% - 10px), 26% 100%, 24% calc(100% - 10px), 22% 100%, 20% calc(100% - 10px), 18% 100%, 16% calc(100% - 10px), 14% 100%, 12% calc(100% - 10px), 10% 100%, 8% calc(100% - 10px), 6% 100%, 4% calc(100% - 10px), 2% 100%, 0 calc(100% - 10px));
+        }
+        
+        .dot-leader {
+            flex-grow: 1;
+            border-bottom: 2px dotted #15100d;
+            margin: 0 8px;
+            position: relative;
+            top: -6px;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-input:checked ~ .accordion-content {
+            max-height: 300px; /* Arbitrary large number */
+        }
+        
+        @keyframes flicker {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+            100% { transform: scale(0.9); opacity: 0.9; }
+        }
+        .flame-loader {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: #A83A2C;
+            clip-path: polygon(50% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%);
+            animation: flicker 0.2s infinite alternate;
+        }
+    </style>
+</head>
+<body class="bg-surface-container-low text-primary min-h-screen flex flex-col font-body-md antialiased selection:bg-mustard selection:text-ink">
+<!-- Top Navigation Rail -->
+<header class="flex items-center justify-between px-margin-desktop py-4 bg-surface border-b-2 border-primary w-full docked top-0 z-50">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-2xl">arrow_back</span>
+<h1 class="font-headline-lg text-headline-lg uppercase tracking-tight text-primary">CHECKOUT</h1>
+</div>
+<div class="hidden md:flex space-x-6 border-l-2 border-primary pl-6">
+<a class="text-on-surface-variant font-label-caps text-label-caps uppercase hover:text-primary transition-colors" href="#">Cart</a>
+<a class="text-primary font-label-caps text-label-caps uppercase border-b-4 border-mustard pb-1 font-bold" href="#">Checkout</a>
+</div>
+</header>
+<main class="flex-grow flex flex-col lg:flex-row max-w-container-max mx-auto w-full gap-gutter p-margin-mobile md:p-margin-desktop">
+<!-- Left Column: Process -->
+<div class="flex-grow flex flex-col gap-8 w-full lg:w-2/3">
+<!-- Progress Tracker -->
+<div class="flex justify-between items-center border-b-2 border-primary pb-4 font-label-caps text-label-caps uppercase relative">
+<div class="flex items-center gap-2 z-10 bg-surface-container-low pr-4">
+<div class="w-6 h-6 bg-mustard border-2 border-primary flex items-center justify-center rounded-none text-ink">
+<span class="material-symbols-outlined text-sm font-bold">check</span>
+</div>
+<span>1. Address</span>
+</div>
+<div class="absolute inset-0 top-1/2 -translate-y-1/2 border-t-2 border-dashed border-outline-variant z-0"></div>
+<div class="flex items-center gap-2 z-10 bg-surface-container-low px-4">
+<div class="w-6 h-6 bg-surface-container-lowest border-2 border-primary flex items-center justify-center rounded-none text-primary font-bold">
+                        2
+                    </div>
+<span class="font-bold border-b-2 border-primary">2. Payment</span>
+</div>
+<div class="flex items-center gap-2 z-10 bg-surface-container-low pl-4 text-on-surface-variant">
+<div class="w-6 h-6 bg-surface-container-low border-2 border-outline-variant flex items-center justify-center rounded-none">
+                        3
+                    </div>
+<span>3. Confirm</span>
+</div>
+</div>
+<!-- Section 1: Address -->
+<section class="flex flex-col gap-4">
+<h2 class="font-headline-md text-headline-md uppercase">DELIVERY ADDRESS</h2>
+<div class="bg-surface-container-lowest border-2 border-primary p-4 flex justify-between items-start">
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-3xl">home</span>
+<div>
+<p class="font-bold font-body-lg text-body-lg">Main Kitchen / Expo</p>
+<p class="text-on-surface-variant font-data-mono text-data-mono mt-1">123 Culinary Row, Station 4<br/>Food District, City 90210</p>
+</div>
+</div>
+<button class="font-label-caps text-label-caps uppercase border-b-2 border-primary hover:text-mustard hover:border-mustard transition-colors pb-0.5">CHANGE</button>
+</div>
+</section>
+<!-- Section Divider -->
+<div class="flex items-center justify-center py-6 text-outline font-data-mono text-data-mono uppercase tracking-widest gap-4">
+<span>- - - </span>
+<span class="material-symbols-outlined text-sm">content_cut</span>
+<span> - - - PAYMENT DETAILS - - -</span>
+<span class="material-symbols-outlined text-sm">content_cut</span>
+<span> - - -</span>
+</div>
+<!-- Section 2: Payment Methods -->
+<section class="flex flex-col gap-4">
+<h2 class="font-headline-md text-headline-md uppercase">PAYMENT METHOD</h2>
+<div class="border-2 border-primary bg-surface-container-lowest divide-y-2 divide-primary">
+<!-- Card Accordion -->
+<div class="relative">
+<input checked="" class="peer accordion-input hidden" id="pay-card" name="payment" type="radio"/>
+<label class="flex items-center p-4 cursor-pointer hover:bg-surface-variant transition-colors peer-checked:bg-mustard peer-checked:text-ink" for="pay-card">
+<span class="material-symbols-outlined mr-4">credit_card</span>
+<span class="font-label-caps text-label-caps uppercase flex-grow">Credit / Debit Card</span>
+<div class="w-4 h-4 border-2 border-primary rounded-none peer-checked:bg-ink"></div>
+</label>
+<div class="accordion-content bg-surface-container-lowest peer-checked:border-t-2 peer-checked:border-primary">
+<div class="p-4 flex flex-col gap-4">
+<input class="w-full border border-outline p-2 font-data-mono text-data-mono focus:border-2 focus:border-primary focus:ring-0 bg-surface-container-low placeholder:text-on-surface-variant rounded-none" placeholder="Card Number" type="text"/>
+<div class="flex gap-4">
+<input class="w-1/2 border border-outline p-2 font-data-mono text-data-mono focus:border-2 focus:border-primary focus:ring-0 bg-surface-container-low placeholder:text-on-surface-variant rounded-none" placeholder="MM/YY" type="text"/>
+<input class="w-1/2 border border-outline p-2 font-data-mono text-data-mono focus:border-2 focus:border-primary focus:ring-0 bg-surface-container-low placeholder:text-on-surface-variant rounded-none" placeholder="CVC" type="text"/>
+</div>
+</div>
+</div>
+</div>
+<!-- UPI Accordion -->
+<div class="relative">
+<input class="peer accordion-input hidden" id="pay-upi" name="payment" type="radio"/>
+<label class="flex items-center p-4 cursor-pointer hover:bg-surface-variant transition-colors peer-checked:bg-mustard peer-checked:text-ink" for="pay-upi">
+<span class="material-symbols-outlined mr-4">qr_code_scanner</span>
+<span class="font-label-caps text-label-caps uppercase flex-grow">UPI</span>
+<div class="w-4 h-4 border-2 border-primary rounded-none peer-checked:bg-ink"></div>
+</label>
+<div class="accordion-content bg-surface-container-lowest peer-checked:border-t-2 peer-checked:border-primary">
+<div class="p-4">
+<input class="w-full border border-outline p-2 font-data-mono text-data-mono focus:border-2 focus:border-primary focus:ring-0 bg-surface-container-low placeholder:text-on-surface-variant rounded-none" placeholder="Enter UPI ID (e.g. user@bank)" type="text"/>
+</div>
+</div>
+</div>
+<!-- COD Accordion -->
+<div class="relative">
+<input class="peer accordion-input hidden" id="pay-cod" name="payment" type="radio"/>
+<label class="flex items-center p-4 cursor-pointer hover:bg-surface-variant transition-colors peer-checked:bg-mustard peer-checked:text-ink" for="pay-cod">
+<span class="material-symbols-outlined mr-4">payments</span>
+<span class="font-label-caps text-label-caps uppercase flex-grow">Cash on Delivery</span>
+<div class="w-4 h-4 border-2 border-primary rounded-none peer-checked:bg-ink"></div>
+</label>
+<div class="accordion-content bg-surface-container-lowest peer-checked:border-t-2 peer-checked:border-primary">
+<div class="p-4 font-body-md text-body-md text-on-surface-variant">
+                                Please have exact change ready.
+                            </div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary -->
+<div class="w-full lg:w-1/3 flex flex-col gap-6 sticky top-24 h-max">
+<div class="bg-surface-container-lowest border-2 border-primary border-b-0 zigzag-bottom pb-12 pt-6 px-6 shadow-none relative">
+<!-- Luggage Tag Status -->
+<div class="absolute -top-3 -right-3 bg-ink text-surface px-3 py-1 font-label-caps text-label-caps uppercase flex items-center gap-2 border-2 border-primary transform rotate-3">
+<span class="material-symbols-outlined text-sm">receipt</span>
+                    TICKET #409
+                </div>
+<div class="flex justify-between items-center mb-6">
+<h2 class="font-headline-md text-headline-md uppercase border-b-2 border-primary pb-2 flex-grow">ORDER SUMMARY</h2>
+</div>
+<div class="font-data-mono text-data-mono flex flex-col gap-3">
+<div class="flex justify-between items-baseline">
+<span class="flex-shrink-0 whitespace-nowrap">x2 Margherita Pizza</span>
+<div class="dot-leader"></div>
+<span class="flex-shrink-0">₹380</span>
+</div>
+<div class="flex justify-between items-baseline">
+<span class="flex-shrink-0 whitespace-nowrap">x1 Garlic Knots</span>
+<div class="dot-leader"></div>
+<span class="flex-shrink-0">₹120</span>
+</div>
+<div class="flex justify-between items-baseline text-on-surface-variant">
+<span class="flex-shrink-0 whitespace-nowrap">Taxes &amp; Fees</span>
+<div class="dot-leader"></div>
+<span class="flex-shrink-0">₹45</span>
+</div>
+</div>
+<div class="mt-6 pt-4 border-t-2 border-dashed border-primary flex justify-between items-end">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">TOTAL DUE</span>
+<span class="font-price-lg text-price-lg">₹545</span>
+</div>
+<div class="mt-6 text-center">
+<a class="font-label-caps text-label-caps uppercase border-b-2 border-primary hover:text-mustard hover:border-mustard transition-colors pb-0.5 inline-block" href="#">EDIT CART</a>
+</div>
+</div>
+<!-- Checkout Action -->
+<button class="w-full bg-mustard text-ink border-2 border-primary py-4 px-6 font-label-caps text-label-caps uppercase tracking-widest hover:bg-ink hover:text-mustard transition-colors flex justify-center items-center gap-2 relative z-10 active:translate-y-1" id="place-order-btn">
+<span id="btn-text">PLACE ORDER — ₹545 →</span>
+<span class="hidden flame-loader" id="btn-loader"></span>
+</button>
+</div>
+</main>
+<footer class="mt-auto flex flex-col md:flex-row justify-between items-center px-margin-desktop py-8 bg-primary w-full border-t-4 border-secondary-fixed text-on-primary font-data-mono text-data-mono">
+<div class="font-headline-md text-headline-md text-on-primary mb-4 md:mb-0">© 2024 THE ORDER TICKET - BACK OF HOUSE</div>
+<div class="flex gap-6">
+<a class="text-on-primary-container opacity-80 hover:text-secondary-fixed transition-opacity" href="#">Privacy</a>
+<a class="text-on-primary-container opacity-80 hover:text-secondary-fixed transition-opacity" href="#">Terms</a>
+<a class="text-on-primary-container opacity-80 hover:text-secondary-fixed transition-opacity" href="#">Support</a>
+</div>
+</footer>
+<script>
+        document.getElementById('place-order-btn').addEventListener('click', function() {
+            if(this.disabled) return;
+            
+            const btnText = document.getElementById('btn-text');
+            const btnLoader = document.getElementById('btn-loader');
+            
+            this.disabled = true;
+            this.classList.remove('hover:bg-ink', 'hover:text-mustard', 'active:translate-y-1');
+            this.classList.add('opacity-80', 'cursor-not-allowed');
+            
+            btnText.textContent = 'PLACING ORDER...';
+            btnLoader.classList.remove('hidden');
+            
+            // Simulate network request
+            setTimeout(() => {
+                btnText.textContent = 'ORDER PLACED';
+                btnLoader.classList.add('hidden');
+                this.classList.replace('bg-mustard', 'bg-tertiary-fixed');
+            }, 2000);
+        });
+    </script>
+</body></html>

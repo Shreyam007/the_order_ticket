@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Search Results - The Order Ticket</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=JetBrains+Mono:wght@500;700&amp;family=Karla:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-variant": "#e5e2da",
+                      "primary-fixed-dim": "#cfc4be",
+                      "secondary-fixed": "#ffdea1",
+                      "on-background": "#1c1c17",
+                      "surface-dim": "#dddad1",
+                      "outline": "#7f756f",
+                      "surface": "#fcf9f0",
+                      "surface-container-highest": "#e5e2da",
+                      "tertiary": "#001602",
+                      "on-primary-container": "#958b86",
+                      "on-tertiary": "#ffffff",
+                      "surface-container": "#f1eee5",
+                      "background": "#fcf9f0",
+                      "on-tertiary-container": "#6b9967",
+                      "surface-container-low": "#f6f3ea",
+                      "primary-container": "#2b2521",
+                      "outline-variant": "#d0c4bd",
+                      "surface-bright": "#fcf9f0",
+                      "tertiary-container": "#002e08",
+                      "primary-fixed": "#ece0da",
+                      "tertiary-fixed-dim": "#a2d39c",
+                      "on-secondary": "#ffffff",
+                      "on-primary-fixed": "#201a17",
+                      "error": "#ba1a1a",
+                      "on-error": "#ffffff",
+                      "tertiary-fixed": "#bdf0b7",
+                      "surface-container-high": "#ebe8df",
+                      "primary": "#15100d",
+                      "secondary": "#7a5900",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-fixed": "#002204",
+                      "on-primary-fixed-variant": "#4d4541",
+                      "inverse-on-surface": "#f4f1e8",
+                      "on-secondary-fixed-variant": "#5c4300",
+                      "inverse-primary": "#cfc4be",
+                      "on-secondary-container": "#725300",
+                      "on-tertiary-fixed-variant": "#255026",
+                      "inverse-surface": "#31312b",
+                      "on-secondary-fixed": "#261900",
+                      "secondary-container": "#fdc74d",
+                      "on-surface-variant": "#4d4540",
+                      "error-container": "#ffdad6",
+                      "secondary-fixed-dim": "#f4be45",
+                      "on-error-container": "#93000a",
+                      "surface-tint": "#655d58",
+                      "on-surface": "#1c1c17",
+                      "on-primary": "#ffffff",
+                      "ticket-border": "#E4DFD3",
+                      "mustard": "#D9A62E"
+              },
+              "borderRadius": {
+                      "DEFAULT": "4px",
+                      "lg": "4px",
+                      "xl": "4px",
+                      "full": "4px"
+              },
+              "spacing": {
+                      "gutter": "16px",
+                      "container-max": "1280px",
+                      "margin-mobile": "16px",
+                      "margin-desktop": "32px",
+                      "unit": "4px"
+              },
+              "fontFamily": {
+                      "body-lg": [
+                              "Karla"
+                      ],
+                      "price-lg": [
+                              "JetBrains Mono"
+                      ],
+                      "label-caps": [
+                              "Barlow Condensed"
+                      ],
+                      "headline-md": [
+                              "Barlow Condensed"
+                      ],
+                      "headline-lg": [
+                              "Barlow Condensed"
+                      ],
+                      "data-mono": [
+                              "JetBrains Mono"
+                      ],
+                      "display-xl": [
+                              "Barlow Condensed"
+                      ],
+                      "body-md": [
+                              "Karla"
+                      ]
+              },
+              "fontSize": {
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "price-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "label-caps": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.05em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "data-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "display-xl": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+            },
+          }
+    </script>
+<style>
+        body {
+            background-color: #F6F3EA;
+            color: #2B2521;
+        }
+        
+        .zig-zag-bottom {
+            clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 10px), 98% 100%, 96% calc(100% - 10px), 94% 100%, 92% calc(100% - 10px), 90% 100%, 88% calc(100% - 10px), 86% 100%, 84% calc(100% - 10px), 82% 100%, 80% calc(100% - 10px), 78% 100%, 76% calc(100% - 10px), 74% 100%, 72% calc(100% - 10px), 70% 100%, 68% calc(100% - 10px), 66% 100%, 64% calc(100% - 10px), 62% 100%, 60% calc(100% - 10px), 58% 100%, 56% calc(100% - 10px), 54% 100%, 52% calc(100% - 10px), 50% 100%, 48% calc(100% - 10px), 46% 100%, 44% calc(100% - 10px), 42% 100%, 40% calc(100% - 10px), 38% 100%, 36% calc(100% - 10px), 34% 100%, 32% calc(100% - 10px), 30% 100%, 28% calc(100% - 10px), 26% 100%, 24% calc(100% - 10px), 22% 100%, 20% calc(100% - 10px), 18% 100%, 16% calc(100% - 10px), 14% 100%, 12% calc(100% - 10px), 10% 100%, 8% calc(100% - 10px), 6% 100%, 4% calc(100% - 10px), 2% 100%, 0% calc(100% - 10px));
+        }
+
+        .scissors-dash {
+            background-image: linear-gradient(to right, #E4DFD3 50%, transparent 50%);
+            background-size: 8px 1px;
+            background-repeat: repeat-x;
+            height: 1px;
+            width: 100%;
+        }
+        
+        .luggage-tag {
+            background-color: #F6F3EA;
+            border: 1px solid #E4DFD3;
+            border-radius: 2px;
+            padding: 2px 6px;
+            position: relative;
+        }
+        .luggage-tag::before {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 4px;
+            height: 4px;
+            background-color: #2B2521;
+            border-radius: 50%;
+        }
+        
+        .checkbox-x {
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border: 2px solid #2B2521;
+            border-radius: 2px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background: #F6F3EA;
+        }
+        .checkbox-x:checked::after {
+            content: '×';
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 16px;
+            color: #2B2521;
+            line-height: 1;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col items-center">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-margin-desktop h-16 bg-background border-b-2 border-primary z-50 sticky top-0 hidden md:flex">
+<div class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary dark:text-primary-fixed">
+            ORDER TICKET
+        </div>
+<nav class="flex h-full border-x-2 border-primary">
+<a class="h-full px-6 flex items-center justify-center border-r-2 border-primary font-label-caps text-label-caps text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors duration-100" href="#">HOME</a>
+<a class="h-full px-6 flex items-center justify-center border-r-2 border-primary font-label-caps text-label-caps relative text-primary after:content-[''] after:absolute after:-top-2 after:left-1/2 after:-translate-x-1/2 after:w-6 after:h-6 after:bg-[url('https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/attach_file/default/24px.svg')] after:bg-no-repeat after:rotate-180 bg-surface-variant" href="#">EXPLORE</a>
+<a class="h-full px-6 flex items-center justify-center font-label-caps text-label-caps text-on-surface-variant hover:bg-primary hover:text-on-primary transition-colors duration-100" href="#">ORDERS</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 border-2 border-primary hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined" data-weight="fill" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+</button>
+<div class="w-10 h-10 border-2 border-primary bg-surface-variant flex items-center justify-center font-label-caps text-label-caps font-bold">
+                US
+            </div>
+</div>
+</header>
+<!-- Mobile Top Header (Fallback for md:hidden logic in prompt context, though desktop requested, good to keep structural integrity) -->
+<header class="md:hidden flex justify-between items-center w-full px-margin-mobile h-16 bg-background border-b-2 border-primary z-50 sticky top-0">
+<div class="font-headline-md text-headline-md font-bold tracking-tighter text-primary">
+            ORDER TICKET
+        </div>
+<button class="p-2 border-2 border-primary hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">shopping_cart</span>
+</button>
+</header>
+<main class="w-full max-w-[1280px] px-margin-desktop py-8 flex flex-col md:flex-row gap-8">
+<!-- Left Sidebar (Filters) -->
+<aside class="w-full md:w-64 flex-shrink-0 flex flex-col gap-6">
+<div class="bg-surface p-4 border border-ticket-border relative">
+<div class="font-label-caps text-label-caps font-bold mb-4 flex items-center gap-2 uppercase">
+<span class="material-symbols-outlined text-[18px]">filter_list</span> FILTERS
+                 </div>
+<div class="scissors-dash mb-4 relative flex items-center justify-center">
+<span class="material-symbols-outlined text-[12px] absolute bg-surface px-1 text-outline">content_cut</span>
+</div>
+<!-- Price Range -->
+<div class="mb-6">
+<div class="font-label-caps text-label-caps mb-2 text-on-surface-variant">PRICE RANGE</div>
+<div class="flex border border-primary">
+<button class="flex-1 py-1 font-data-mono text-data-mono border-r border-primary bg-primary text-on-primary text-center hover:bg-primary/90">₹</button>
+<button class="flex-1 py-1 font-data-mono text-data-mono border-r border-primary text-center hover:bg-surface-variant">₹₹</button>
+<button class="flex-1 py-1 font-data-mono text-data-mono text-center hover:bg-surface-variant">₹₹₹</button>
+</div>
+</div>
+<!-- Cuisine -->
+<div class="mb-6">
+<div class="font-label-caps text-label-caps mb-2 text-on-surface-variant">CUISINE</div>
+<div class="flex flex-col gap-2">
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="checkbox-x" type="checkbox"/>
+<span class="font-data-mono text-data-mono text-sm luggage-tag group-hover:bg-surface-variant transition-colors">Italian</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="checkbox-x" type="checkbox"/>
+<span class="font-data-mono text-data-mono text-sm luggage-tag group-hover:bg-surface-variant transition-colors">Indian</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input checked="" class="checkbox-x" type="checkbox"/>
+<span class="font-data-mono text-data-mono text-sm luggage-tag group-hover:bg-surface-variant transition-colors">Pizza</span>
+</label>
+<label class="flex items-center gap-2 cursor-pointer group">
+<input class="checkbox-x" type="checkbox"/>
+<span class="font-data-mono text-data-mono text-sm luggage-tag group-hover:bg-surface-variant transition-colors">Burgers</span>
+</label>
+</div>
+</div>
+<!-- Dietary -->
+<div class="mb-6">
+<div class="font-label-caps text-label-caps mb-2 text-on-surface-variant">DIETARY</div>
+<div class="flex flex-wrap gap-2">
+<button class="border border-primary px-2 py-1 font-data-mono text-data-mono text-xs hover:bg-surface-variant">VEG</button>
+<button class="border border-primary bg-primary text-on-primary px-2 py-1 font-data-mono text-data-mono text-xs">NON-VEG</button>
+<button class="border border-primary px-2 py-1 font-data-mono text-data-mono text-xs hover:bg-surface-variant">VEGAN</button>
+</div>
+</div>
+<!-- Rating -->
+<div class="mb-6">
+<div class="font-label-caps text-label-caps mb-2 text-on-surface-variant">RATING</div>
+<label class="flex items-center gap-2 cursor-pointer">
+<input checked="" class="checkbox-x" type="checkbox"/>
+<span class="font-data-mono text-data-mono text-sm flex items-center gap-1">4.0+ <span class="material-symbols-outlined text-[14px]">star</span></span>
+</label>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<section class="flex-1 flex flex-col gap-6">
+<!-- Search Bar Area -->
+<div class="bg-surface border-2 border-primary p-4 flex flex-col gap-4 zig-zag-bottom relative">
+<div class="absolute top-0 right-0 bg-mustard text-primary px-2 py-1 border-b-2 border-l-2 border-primary font-label-caps text-label-caps text-xs font-bold">
+                    SEARCH TICKET
+                </div>
+<div class="flex gap-4 items-end mt-4">
+<div class="flex-1">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">QUERY</label>
+<div class="flex border-b-2 border-primary focus-within:border-b-4 focus-within:-mb-[2px] transition-all">
+<span class="material-symbols-outlined p-2 text-on-surface-variant">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 font-data-mono text-data-mono p-2" placeholder="Search..." type="text" value="Margherita Pizza"/>
+</div>
+</div>
+<button class="md:hidden border-2 border-primary px-4 py-2 font-label-caps text-label-caps flex items-center gap-2 hover:bg-primary hover:text-on-primary transition-colors relative">
+                        FILTERS
+                        <span class="absolute -top-1 -right-1 w-3 h-3 bg-mustard border border-primary rounded-full"></span>
+</button>
+</div>
+<div class="scissors-dash my-2"></div>
+<div class="font-data-mono text-data-mono text-sm uppercase flex items-center justify-between">
+<span>STATUS: EXECUTING</span>
+<span class="font-bold">34 RESTAURANTS FOUND</span>
+</div>
+</div>
+<!-- Results List -->
+<div class="flex flex-col border border-ticket-border bg-surface">
+<!-- Row 1 -->
+<div class="flex items-center p-4 border-b border-ticket-border hover:bg-surface-variant transition-colors group cursor-pointer relative">
+<img class="w-20 h-20 object-cover border border-primary rounded-[4px] flex-shrink-0" data-alt="A highly detailed, professional food photography shot of a rustic Italian pizza place storefront. The scene is brightly lit with warm, natural sunlight, showcasing the brick facade and small wooden tables. The mood is welcoming and artisanal, fitting a high-end delivery app. The style uses warm tones, sharp focus, and a slight vignette to emphasize the food context. The overall aesthetic is clean, appetizing, and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNIQgooWEbagC-fE1e2t-vl2l9J8SkNe8gAAob3YX9oDPT-9G8_juWgFXQt1NyjnBOdDQ3uTM1XSRIEL9jzjQcBrAPG4Rex_G-8oJopQUItLxdFjXtYFry0Af7HjIxxZwqXubVlSJ4yMsxGJIbV8VmR51G3Cs0y5fDDrFtzLjTgdNV_gKLwufmeWd39JKk1WCqD8Xo6JgabRTIgO80YiU1rZy90Q3gzHMGXTOmzcm0gBItipoG-i5d"/>
+<div class="ml-4 flex-1 flex flex-col justify-between h-full">
+<div class="flex justify-between items-start w-full">
+<h3 class="font-headline-md text-headline-md font-bold uppercase m-0 leading-none group-hover:underline decoration-2 underline-offset-2">Luigi's Oven</h3>
+<div class="flex items-center gap-1 font-data-mono text-data-mono text-sm bg-surface-container-high px-2 py-1 border border-ticket-border">
+                                4.8 <span class="material-symbols-outlined text-[14px]">star</span>
+</div>
+</div>
+<div class="flex gap-2 mt-2">
+<span class="font-data-mono text-data-mono text-xs luggage-tag">Italian</span>
+<span class="font-data-mono text-data-mono text-xs luggage-tag">Pizza</span>
+</div>
+<div class="mt-3 font-data-mono text-data-mono text-sm text-on-surface-variant flex items-center gap-2">
+<span>25 MINS</span>
+<span class="text-[8px]">•</span>
+<span>2.4 KM</span>
+</div>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity ml-4">
+<span class="material-symbols-outlined text-primary">arrow_forward</span>
+</div>
+</div>
+<!-- Row 2 -->
+<div class="flex items-center p-4 border-b border-ticket-border hover:bg-surface-variant transition-colors group cursor-pointer relative">
+<img class="w-20 h-20 object-cover border border-primary rounded-[4px] flex-shrink-0" data-alt="A detailed, appetizing top-down view of a classic Margherita pizza on a wooden peel, set on a stainless steel commercial kitchen counter. The lighting is bright and directional, emphasizing the bubbling cheese, fresh basil leaves, and charred crust. The mood is energetic and authentic back-of-house culinary. The color palette focuses on rich reds, bright greens, and warm crust tones against cool metal. High-resolution, sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVL4CDA3XMZaNqYe_glmLTtjW9SRy49KdIDWeQ61OfhREAoy9K17FUiai0pgutcI-k_17eXhAKVILKlXWs8az3T8pWpHstf2tKg3L0UovXEzdAW01JqIJLU_wkxb0viHtA5ACJ7SrnTqCo89vjbKjbuH4xd3I-S_JuVfPLBxDoxxue1s7cAfJOK_aacrkCrbb0VX2ftKNXdarhePblkRvnOewMdTGDIUixViG0fOZk-QqoPXDuPYWL"/>
+<div class="ml-4 flex-1 flex flex-col justify-between h-full">
+<div class="flex justify-between items-start w-full">
+<h3 class="font-headline-md text-headline-md font-bold uppercase m-0 leading-none group-hover:underline decoration-2 underline-offset-2">Nonna's Pizzeria</h3>
+<div class="flex items-center gap-1 font-data-mono text-data-mono text-sm bg-surface-container-high px-2 py-1 border border-ticket-border">
+                                4.6 <span class="material-symbols-outlined text-[14px]">star</span>
+</div>
+</div>
+<div class="flex gap-2 mt-2">
+<span class="font-data-mono text-data-mono text-xs luggage-tag">Pizza</span>
+<span class="font-data-mono text-data-mono text-xs luggage-tag">Fast Food</span>
+</div>
+<div class="mt-3 font-data-mono text-data-mono text-sm text-on-surface-variant flex items-center gap-2">
+<span>35 MINS</span>
+<span class="text-[8px]">•</span>
+<span>4.1 KM</span>
+</div>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity ml-4">
+<span class="material-symbols-outlined text-primary">arrow_forward</span>
+</div>
+</div>
+<!-- Row 3 -->
+<div class="flex items-center p-4 border-b border-ticket-border hover:bg-surface-variant transition-colors group cursor-pointer relative bg-surface-container-lowest">
+<img class="w-20 h-20 object-cover border border-primary rounded-[4px] flex-shrink-0" data-alt="A close-up, high-end culinary shot of a wood-fired pizza oven interior with flames licking a bubbling pizza. The aesthetic is warm, intense, and artisanal, capturing the raw energy of an industrial kitchen. The lighting highlights the texture of the stone and the crust of the food. The colors are deep oranges, reds, and charcoal blacks. Professional photography, dramatic but clean composition suitable for a food app interface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABiwpqdBzed979zKrqQ90irGr_goTNdGyIhR6Hx8ITrtHr3dJ-h1u9jXncrKisp72i2lt8WFKXcsWTBS8T9ZGcR890lIVokQpPizgtBDb7e0TCXHZljA0nWdNCUa5QWnRraV9PkXKV7n8BNBqPpSjld-c9_XljKI3EgTwYcWmSeBH3JLWDNf6tiRNZBjrnTg3qa6GoDJH8Kd5RVp9iHTqOyr0ch49-N-OayonyWel4LPFzWPtjpEST"/>
+<div class="absolute top-2 right-2 bg-secondary text-on-secondary px-1 py-0.5 text-[10px] font-data-mono uppercase border border-primary">Promoted</div>
+<div class="ml-4 flex-1 flex flex-col justify-between h-full">
+<div class="flex justify-between items-start w-full">
+<h3 class="font-headline-md text-headline-md font-bold uppercase m-0 leading-none group-hover:underline decoration-2 underline-offset-2">Fire &amp; Crust</h3>
+<div class="flex items-center gap-1 font-data-mono text-data-mono text-sm bg-surface-container-high px-2 py-1 border border-ticket-border mt-4">
+                                4.2 <span class="material-symbols-outlined text-[14px]">star</span>
+</div>
+</div>
+<div class="flex gap-2 mt-2">
+<span class="font-data-mono text-data-mono text-xs luggage-tag">Italian</span>
+</div>
+<div class="mt-3 font-data-mono text-data-mono text-sm text-on-surface-variant flex items-center gap-2">
+<span>15 MINS</span>
+<span class="text-[8px]">•</span>
+<span>1.2 KM</span>
+</div>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity ml-4">
+<span class="material-symbols-outlined text-primary">arrow_forward</span>
+</div>
+</div>
+<!-- Row 4 -->
+<div class="flex items-center p-4 hover:bg-surface-variant transition-colors group cursor-pointer relative">
+<img class="w-20 h-20 object-cover border border-primary rounded-[4px] flex-shrink-0" data-alt="A minimalist, stylish shot of a white takeaway pizza box slightly open, revealing a fresh, hot pizza inside. It rests on a clean stainless steel prep table. The lighting is soft and natural, creating a bright, modern, and appetizing scene. The colors are neutral whites and greys with pops of warm food colors. The mood is efficient, premium delivery service. High definition, sharp focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCE4pAc4zZjX1JnP94rXNFBXHd34iXSEu7eX8EWldpjaAz3w2LAhbN9AVToMmWnEd52V13JTVLl4fa2DIcppyhELfxmxeTk51f6_5dOXKCmG6SKRDXCIhrQKZMs6B9C4a4G0hX_F_yC-Fyu65dEuh5CBrAerkof_078Jybk_PytROKHMtRX3AYN6k02eQYbOQDIwcgZoe27nXU9-bj4xPhFWmfR8T7JYZYhbqxgBWs67c6pm25SSB9_"/>
+<div class="ml-4 flex-1 flex flex-col justify-between h-full">
+<div class="flex justify-between items-start w-full">
+<h3 class="font-headline-md text-headline-md font-bold uppercase m-0 leading-none group-hover:underline decoration-2 underline-offset-2">Slice Express</h3>
+<div class="flex items-center gap-1 font-data-mono text-data-mono text-sm bg-surface-container-high px-2 py-1 border border-ticket-border">
+                                4.9 <span class="material-symbols-outlined text-[14px]">star</span>
+</div>
+</div>
+<div class="flex gap-2 mt-2">
+<span class="font-data-mono text-data-mono text-xs luggage-tag">Pizza</span>
+</div>
+<div class="mt-3 font-data-mono text-data-mono text-sm text-on-surface-variant flex items-center gap-2">
+<span>45 MINS</span>
+<span class="text-[8px]">•</span>
+<span>5.6 KM</span>
+</div>
+</div>
+<div class="opacity-0 group-hover:opacity-100 transition-opacity ml-4">
+<span class="material-symbols-outlined text-primary">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Load More Button -->
+<button class="w-full py-4 border-2 border-primary bg-transparent font-label-caps text-label-caps uppercase hover:bg-primary hover:text-on-primary transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">expand_more</span>
+                LOAD MORE TICKETS
+            </button>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-20 px-2 pb-safe bg-surface-container-low border-t-2 border-primary">
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">restaurant_menu</span>
+<span class="font-label-caps text-label-caps text-[10px] mt-1">MENU</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-secondary-container text-on-secondary-container p-2 border-2 border-primary scale-95 transition-transform" href="#">
+<span class="material-symbols-outlined text-2xl">location_on</span>
+<span class="font-label-caps text-label-caps text-[10px] mt-1 font-bold">TRACK</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">qr_code_scanner</span>
+<span class="font-label-caps text-label-caps text-[10px] mt-1">SCAN</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-2 hover:bg-surface-variant transition-colors" href="#">
+<span class="material-symbols-outlined text-2xl">receipt_long</span>
+<span class="font-label-caps text-label-caps text-[10px] mt-1">HISTORY</span>
+</a>
+</nav>
+</body></html>

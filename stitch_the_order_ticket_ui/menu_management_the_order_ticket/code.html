@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Order Ticket - Menu Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=JetBrains+Mono:wght@500;700&amp;family=Karla:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-surface": "#31312b",
+                        "secondary": "#7a5900",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f6f3ea",
+                        "error-container": "#ffdad6",
+                        "outline": "#7f756f",
+                        "outline-variant": "#d0c4bd",
+                        "secondary-container": "#fdc74d",
+                        "on-secondary-container": "#725300",
+                        "primary-container": "#2b2521",
+                        "on-primary-fixed-variant": "#4d4541",
+                        "tertiary-container": "#002e08",
+                        "primary-fixed-dim": "#cfc4be",
+                        "secondary-fixed-dim": "#f4be45",
+                        "surface-tint": "#655d58",
+                        "on-primary-fixed": "#201a17",
+                        "primary": "#15100d",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#dddad1",
+                        "surface-bright": "#fcf9f0",
+                        "surface-container-highest": "#e5e2da",
+                        "on-tertiary-container": "#6b9967",
+                        "on-secondary-fixed": "#261900",
+                        "surface-variant": "#e5e2da",
+                        "surface-container": "#f1eee5",
+                        "secondary-fixed": "#ffdea1",
+                        "on-error-container": "#93000a",
+                        "on-tertiary": "#ffffff",
+                        "on-surface-variant": "#4d4540",
+                        "background": "#fcf9f0",
+                        "inverse-primary": "#cfc4be",
+                        "on-primary-container": "#958b86",
+                        "surface": "#fcf9f0",
+                        "on-error": "#ffffff",
+                        "on-tertiary-fixed-variant": "#255026",
+                        "on-surface": "#1c1c17",
+                        "tertiary-fixed": "#bdf0b7",
+                        "tertiary": "#001602",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#a2d39c",
+                        "surface-container-high": "#ebe8df",
+                        "on-background": "#1c1c17",
+                        "inverse-on-surface": "#f4f1e8",
+                        "on-tertiary-fixed": "#002204",
+                        "on-secondary": "#ffffff",
+                        "primary-fixed": "#ece0da"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px",
+                        "gutter": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Karla"],
+                        "body-lg": ["Karla"],
+                        "label-caps": ["Barlow Condensed"],
+                        "headline-lg": ["Barlow Condensed"],
+                        "headline-md": ["Barlow Condensed"],
+                        "price-lg": ["JetBrains Mono"],
+                        "display-xl": ["Barlow Condensed"],
+                        "data-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-caps": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "price-lg": ["20px", { "lineHeight": "1.0", "fontWeight": "700" }],
+                        "display-xl": ["48px", { "lineHeight": "1.1", "fontWeight": "700" }],
+                        "data-mono": ["14px", { "lineHeight": "1.4", "letterSpacing": "-0.02em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .clip-zigzag {
+            clip-path: polygon(0% 0%, 100% 0%, 100% calc(100% - 10px), 98% 100%, 96% calc(100% - 10px), 94% 100%, 92% calc(100% - 10px), 90% 100%, 88% calc(100% - 10px), 86% 100%, 84% calc(100% - 10px), 82% 100%, 80% calc(100% - 10px), 78% 100%, 76% calc(100% - 10px), 74% 100%, 72% calc(100% - 10px), 70% 100%, 68% calc(100% - 10px), 66% 100%, 64% calc(100% - 10px), 62% 100%, 60% calc(100% - 10px), 58% 100%, 56% calc(100% - 10px), 54% 100%, 52% calc(100% - 10px), 50% 100%, 48% calc(100% - 10px), 46% 100%, 44% calc(100% - 10px), 42% 100%, 40% calc(100% - 10px), 38% 100%, 36% calc(100% - 10px), 34% 100%, 32% calc(100% - 10px), 30% 100%, 28% calc(100% - 10px), 26% 100%, 24% calc(100% - 10px), 22% 100%, 20% calc(100% - 10px), 18% 100%, 16% calc(100% - 10px), 14% 100%, 12% calc(100% - 10px), 10% 100%, 8% calc(100% - 10px), 6% 100%, 4% calc(100% - 10px), 2% 100%, 0% calc(100% - 10px));
+        }
+        .scissors-divider {
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+            color: #7f756f;
+            margin: 32px 0;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+        .scissors-divider::before,
+        .scissors-divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 50%;
+            border-top: 2px dashed #7f756f;
+        }
+        .scissors-divider::before { left: 0; margin-left: -48px; }
+        .scissors-divider::after { right: 0; margin-right: -48px; }
+    </style>
+</head>
+<body class="bg-surface-container-low font-body-md text-on-surface flex h-screen overflow-hidden">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-full py-margin-desktop gap-unit bg-surface-container border-r-2 border-primary w-64 shrink-0">
+<div class="px-6 mb-8">
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">The Kitchen</h1>
+<p class="font-data-mono text-data-mono text-outline">Station 01</p>
+</div>
+<div class="px-4 mb-6">
+<button class="w-full border-2 border-primary bg-primary text-on-primary font-label-caps text-label-caps uppercase py-3 hover:bg-surface-container-low hover:text-primary transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add</span>
+                NEW TICKET
+            </button>
+</div>
+<ul class="flex-1 flex flex-col gap-2 px-4">
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-caps text-label-caps uppercase border-2 border-transparent hover:bg-outline-variant hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">receipt_long</span>
+                    Orders
+                </a>
+</li>
+<li class="relative">
+<span class="material-symbols-outlined absolute -top-3 left-1/2 -translate-x-1/2 text-outline z-10 bg-surface-container px-1" style="transform: translateX(-50%) rotate(-10deg);">attach_file</span>
+<a class="flex items-center gap-3 px-4 py-3 bg-primary text-on-primary border-2 border-primary font-label-caps text-label-caps uppercase" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">restaurant_menu</span>
+                    Menu
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-caps text-label-caps uppercase border-2 border-transparent hover:bg-outline-variant hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">analytics</span>
+                    Analytics
+                </a>
+</li>
+<li>
+<a class="flex items-center gap-3 px-4 py-3 text-on-surface-variant font-label-caps text-label-caps uppercase border-2 border-transparent hover:bg-outline-variant hover:text-primary transition-all" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+</li>
+</ul>
+<div class="mt-auto px-4 pt-4 border-t-2 border-outline-variant flex flex-col gap-2">
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant font-label-caps text-label-caps uppercase hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">support_agent</span>
+                Support
+            </a>
+<a class="flex items-center gap-3 px-4 py-2 text-on-surface-variant font-label-caps text-label-caps uppercase hover:text-primary transition-colors" href="#">
+<span class="material-symbols-outlined">logout</span>
+                Logout
+            </a>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 flex flex-col h-full relative overflow-hidden">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center px-margin-desktop py-4 w-full sticky top-0 z-40 bg-surface border-b-2 border-primary shrink-0">
+<div class="flex items-center gap-4">
+<h2 class="font-headline-lg text-headline-lg text-primary uppercase tracking-tight">MENU MANAGEMENT</h2>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4 text-primary">
+<button class="hover:text-secondary transition-colors"><span class="material-symbols-outlined">notifications</span></button>
+<button class="hover:text-secondary transition-colors"><span class="material-symbols-outlined">help</span></button>
+</div>
+<button class="border-2 border-primary bg-primary text-on-primary font-label-caps text-label-caps uppercase px-6 py-2 hover:bg-surface hover:text-primary transition-colors flex items-center gap-2" onclick="document.getElementById('add-item-panel').classList.remove('translate-x-full')">
+<span class="material-symbols-outlined">add</span>
+                    ADD ITEM
+                </button>
+</div>
+</header>
+<!-- Menu Categories Canvas -->
+<div class="flex-1 overflow-y-auto p-margin-desktop">
+<!-- Category: STARTERS -->
+<section class="mb-12">
+<div class="scissors-divider flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">content_cut</span>
+                    STARTERS
+                </div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Item Ticket -->
+<div class="bg-surface border border-outline p-4 flex items-center gap-6 relative clip-zigzag pb-6">
+<div class="absolute top-0 right-0 bg-secondary-container text-on-secondary-container font-label-caps text-label-caps px-3 py-1 border-b border-l border-outline">VEG</div>
+<div class="w-16 h-16 bg-surface-variant border border-outline shrink-0 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A small square thumbnail image showing a perfectly plated gourmet bruschetta starter on a rustic wooden board, shot with bright overhead lighting, typical of high-end industrial kitchen food photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC52MFIaGwHdMP2lFR3PpkFheW9MyvDHFNRtKLHTSP6FSojbBDumujLpBxPtkqovwikH9AxrnLQGpyKIlrCGw0ZUrJKsHmJj0DwAjOakCOalfw_cH1DL4coX0fp8zEVhvdfZEjjjYwarMoTP0GxafNiWsIXCqj5xqKXhNVK1w5tBFZmc2xGCOrKSR8Rt3g9tBRtqXEUDHQyykYR3NdBqNOpg5lWPoIclLjxC9v22aJDFiPr8H5GnvLL"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-primary">TRUFFLE FRIES</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-1">Shoestring fries, parmesan, white truffle oil, rosemary.</p>
+</div>
+<div class="font-price-lg text-price-lg text-primary mr-8 font-data-mono">₹250</div>
+<div class="flex items-center gap-2 mr-6 border border-outline p-1 bg-surface-container">
+<button class="bg-tertiary text-on-tertiary font-label-caps text-label-caps px-3 py-1">AVAILABLE</button>
+<button class="text-on-surface-variant font-label-caps text-label-caps px-3 py-1 hover:bg-surface-variant">SOLD OUT</button>
+</div>
+<div class="flex gap-2">
+<button class="p-2 border border-outline text-primary hover:bg-surface-variant"><span class="material-symbols-outlined text-sm">edit</span></button>
+<button class="p-2 border border-outline text-error hover:bg-error-container"><span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+</div>
+<!-- Item Ticket 2 -->
+<div class="bg-surface border border-outline p-4 flex items-center gap-6 relative clip-zigzag pb-6 opacity-60">
+<div class="absolute top-0 right-0 bg-outline text-surface font-label-caps text-label-caps px-3 py-1 border-b border-l border-outline">NON-VEG</div>
+<div class="w-16 h-16 bg-surface-variant border border-outline shrink-0 flex items-center justify-center overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="A small square thumbnail image of crispy fried chicken wings coated in a dark sticky sauce, presented on a metal tray in a bright, high-contrast industrial kitchen setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-XpgxccFxANZx7yKiZ1CO7EpLwcwy0kqavuhRHTdr_TsS56pbkAXdWHjvjToIzdl2dIrS99u74VmTa3bekxao78ertvOha3xutgTPW1SAYtrNu8A7NJwMEmJfzO5kz2caG5KqmIkhkTIkh_97fFs_rnmQtk-kC0zuayql3KUIwkQ-wYKBrRjYrPiBwkCWB5kYSEvitMbTk4zjf4Qes2lsMkOlgBzS6DbDB8jdlCm-LZ0AmdGl1H9q"/>
+</div>
+<div class="flex-1">
+<h3 class="font-headline-md text-headline-md text-primary">KOREAN WINGS</h3>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-1">Gochujang glaze, toasted sesame, scallions.</p>
+</div>
+<div class="font-price-lg text-price-lg text-primary mr-8 font-data-mono">₹380</div>
+<div class="flex items-center gap-2 mr-6 border border-outline p-1 bg-surface-container">
+<button class="text-on-surface-variant font-label-caps text-label-caps px-3 py-1 hover:bg-surface-variant">AVAILABLE</button>
+<button class="bg-error text-on-error font-label-caps text-label-caps px-3 py-1">SOLD OUT</button>
+</div>
+<div class="flex gap-2">
+<button class="p-2 border border-outline text-primary hover:bg-surface-variant"><span class="material-symbols-outlined text-sm">edit</span></button>
+<button class="p-2 border border-outline text-error hover:bg-error-container"><span class="material-symbols-outlined text-sm">delete</span></button>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Add Item Slide-out Panel -->
+<aside class="absolute top-0 right-0 h-full w-96 bg-surface border-l-2 border-primary transform translate-x-full transition-transform duration-300 z-50 flex flex-col shadow-2xl" id="add-item-panel">
+<header class="flex justify-between items-center p-6 border-b-2 border-primary bg-surface-container">
+<h3 class="font-headline-md text-headline-md text-primary uppercase">NEW ITEM TICKET</h3>
+<button class="text-primary hover:text-error" onclick="document.getElementById('add-item-panel').classList.add('translate-x-full')"><span class="material-symbols-outlined">close</span></button>
+</header>
+<div class="flex-1 overflow-y-auto p-6 flex flex-col gap-6">
+<!-- Photo Upload -->
+<div class="border-2 border-dashed border-outline bg-surface-container-low h-40 flex flex-col items-center justify-center cursor-pointer hover:bg-surface-variant transition-colors">
+<span class="material-symbols-outlined text-outline mb-2">add_a_photo</span>
+<span class="font-label-caps text-label-caps text-outline">ATTACH PHOTO</span>
+</div>
+<!-- Form Fields -->
+<div class="flex flex-col gap-4">
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">ITEM NAME</label>
+<input class="w-full border border-outline focus:border-primary focus:border-2 focus:ring-0 bg-transparent font-data-mono text-data-mono p-2" placeholder="E.g. Garlic Bread" type="text"/>
+</div>
+<div class="flex gap-4">
+<div class="flex-1">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">PRICE</label>
+<div class="relative">
+<span class="absolute left-3 top-2 font-data-mono text-data-mono text-outline">₹</span>
+<input class="w-full border border-outline focus:border-primary focus:border-2 focus:ring-0 bg-transparent font-data-mono text-data-mono p-2 pl-8" placeholder="0.00" type="number"/>
+</div>
+</div>
+<div class="flex-1">
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">CATEGORY</label>
+<select class="w-full border border-outline focus:border-primary focus:border-2 focus:ring-0 bg-transparent font-data-mono text-data-mono p-2 appearance-none rounded-none">
+<option>STARTERS</option>
+<option>MAINS</option>
+<option>DESSERTS</option>
+</select>
+</div>
+</div>
+<div>
+<label class="block font-label-caps text-label-caps text-on-surface-variant mb-1">DESCRIPTION</label>
+<textarea class="w-full border border-outline focus:border-primary focus:border-2 focus:ring-0 bg-transparent font-body-md p-2 resize-none" rows="3"></textarea>
+</div>
+<!-- Tags & Modifiers -->
+<div class="border-t border-b border-outline py-4 my-2 flex flex-col gap-4">
+<div class="flex justify-between items-center">
+<span class="font-label-caps text-label-caps text-primary">DIETARY</span>
+<div class="flex border border-outline">
+<button class="px-4 py-1 bg-secondary-container text-on-secondary-container font-label-caps border-r border-outline">VEG</button>
+<button class="px-4 py-1 bg-surface text-outline font-label-caps hover:bg-surface-variant">NON-VEG</button>
+</div>
+</div>
+<div class="flex justify-between items-center">
+<span class="font-label-caps text-label-caps text-primary">SPICE LEVEL</span>
+<div class="flex gap-1 text-error cursor-pointer">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<span class="material-symbols-outlined text-outline">local_fire_department</span>
+<span class="material-symbols-outlined text-outline">local_fire_department</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<footer class="p-6 border-t-2 border-primary bg-surface-container">
+<button class="w-full border-2 border-primary bg-secondary-container text-on-secondary-container font-headline-md text-headline-md uppercase py-4 hover:bg-primary hover:text-on-primary transition-colors flex justify-center items-center gap-2">
+                    SAVE ITEM <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</footer>
+</aside>
+</main>
+</body></html>

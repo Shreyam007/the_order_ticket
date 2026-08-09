@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Confirmation - The Order Ticket</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;family=Karla:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dddad1",
+                        "surface-container-highest": "#e5e2da",
+                        "primary-fixed-dim": "#cfc4be",
+                        "surface-tint": "#655d58",
+                        "inverse-primary": "#cfc4be",
+                        "on-surface-variant": "#4d4540",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fcf9f0",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#001602",
+                        "tertiary-fixed": "#bdf0b7",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed": "#002204",
+                        "on-secondary-container": "#725300",
+                        "surface-container-lowest": "#ffffff",
+                        "inverse-surface": "#31312b",
+                        "on-primary-fixed-variant": "#4d4541",
+                        "on-background": "#1c1c17",
+                        "tertiary-fixed-dim": "#a2d39c",
+                        "surface-container": "#f1eee5",
+                        "on-tertiary-container": "#6b9967",
+                        "primary-container": "#2b2521",
+                        "tertiary-container": "#002e08",
+                        "surface-variant": "#e5e2da",
+                        "background": "#fcf9f0",
+                        "primary": "#15100d",
+                        "outline": "#7f756f",
+                        "on-primary-container": "#958b86",
+                        "on-primary": "#ffffff",
+                        "surface-container-high": "#ebe8df",
+                        "secondary-fixed": "#ffdea1",
+                        "on-tertiary-fixed-variant": "#255026",
+                        "on-secondary-fixed": "#261900",
+                        "inverse-on-surface": "#f4f1e8",
+                        "secondary-fixed-dim": "#f4be45",
+                        "on-primary-fixed": "#201a17",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#ece0da",
+                        "outline-variant": "#d0c4bd",
+                        "on-secondary": "#ffffff",
+                        "surface": "#fcf9f0",
+                        "secondary": "#7a5900",
+                        "surface-container-low": "#f6f3ea",
+                        "on-error": "#ffffff",
+                        "on-surface": "#1c1c17",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "secondary-container": "#fdc74d",
+                        "ticket-border": "#E4DFD3",
+                        "mustard": "#D9A62E"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0px", // Industrial aesthetic overriding
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "0px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "margin-desktop": "32px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Barlow Condensed", "sans-serif"],
+                        "headline-lg": ["Barlow Condensed", "sans-serif"],
+                        "headline-md": ["Barlow Condensed", "sans-serif"],
+                        "data-mono": ["JetBrains Mono", "monospace"],
+                        "price-lg": ["JetBrains Mono", "monospace"],
+                        "display-xl": ["Barlow Condensed", "sans-serif"],
+                        "body-lg": ["Karla", "sans-serif"],
+                        "body-md": ["Karla", "sans-serif"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "data-mono": ["14px", { "lineHeight": "1.4", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "price-lg": ["20px", { "lineHeight": "1.0", "fontWeight": "700" }],
+                        "display-xl": ["48px", { "lineHeight": "1.1", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        /* Zigzag Torn Paper Effect using clip-path */
+        .torn-top {
+            clip-path: polygon(
+                0% 4px, 2% 0, 4% 4px, 6% 0, 8% 4px, 10% 0, 12% 4px, 14% 0, 16% 4px, 18% 0, 20% 4px, 22% 0, 24% 4px, 26% 0, 28% 4px, 30% 0, 32% 4px, 34% 0, 36% 4px, 38% 0, 40% 4px, 42% 0, 44% 4px, 46% 0, 48% 4px, 50% 0, 52% 4px, 54% 0, 56% 4px, 58% 0, 60% 4px, 62% 0, 64% 4px, 66% 0, 68% 4px, 70% 0, 72% 4px, 74% 0, 76% 4px, 78% 0, 80% 4px, 82% 0, 84% 4px, 86% 0, 88% 4px, 90% 0, 92% 4px, 94% 0, 96% 4px, 98% 0, 100% 4px,
+                100% 100%, 0% 100%
+            );
+        }
+        .torn-bottom {
+            clip-path: polygon(
+                0% 0%, 100% 0%,
+                100% calc(100% - 4px), 98% 100%, 96% calc(100% - 4px), 94% 100%, 92% calc(100% - 4px), 90% 100%, 88% calc(100% - 4px), 86% 100%, 84% calc(100% - 4px), 82% 100%, 80% calc(100% - 4px), 78% 100%, 76% calc(100% - 4px), 74% 100%, 72% calc(100% - 4px), 70% 100%, 68% calc(100% - 4px), 66% 100%, 64% calc(100% - 4px), 62% 100%, 60% calc(100% - 4px), 58% 100%, 56% calc(100% - 4px), 54% 100%, 52% calc(100% - 4px), 50% 100%, 48% calc(100% - 4px), 46% 100%, 44% calc(100% - 4px), 42% 100%, 40% calc(100% - 4px), 38% 100%, 36% calc(100% - 4px), 34% 100%, 32% calc(100% - 4px), 30% 100%, 28% calc(100% - 4px), 26% 100%, 24% calc(100% - 4px), 22% 100%, 20% calc(100% - 4px), 18% 100%, 16% calc(100% - 4px), 14% 100%, 12% calc(100% - 4px), 10% 100%, 8% calc(100% - 4px), 6% 100%, 4% calc(100% - 4px), 2% 100%, 0% calc(100% - 4px)
+            );
+        }
+        .torn-both {
+            clip-path: polygon(
+                0% 4px, 2% 0, 4% 4px, 6% 0, 8% 4px, 10% 0, 12% 4px, 14% 0, 16% 4px, 18% 0, 20% 4px, 22% 0, 24% 4px, 26% 0, 28% 4px, 30% 0, 32% 4px, 34% 0, 36% 4px, 38% 0, 40% 4px, 42% 0, 44% 4px, 46% 0, 48% 4px, 50% 0, 52% 4px, 54% 0, 56% 4px, 58% 0, 60% 4px, 62% 0, 64% 4px, 66% 0, 68% 4px, 70% 0, 72% 4px, 74% 0, 76% 4px, 78% 0, 80% 4px, 82% 0, 84% 4px, 86% 0, 88% 4px, 90% 0, 92% 4px, 94% 0, 96% 4px, 98% 0, 100% 4px,
+                100% calc(100% - 4px), 98% 100%, 96% calc(100% - 4px), 94% 100%, 92% calc(100% - 4px), 90% 100%, 88% calc(100% - 4px), 86% 100%, 84% calc(100% - 4px), 82% 100%, 80% calc(100% - 4px), 78% 100%, 76% calc(100% - 4px), 74% 100%, 72% calc(100% - 4px), 70% 100%, 68% calc(100% - 4px), 66% 100%, 64% calc(100% - 4px), 62% 100%, 60% calc(100% - 4px), 58% 100%, 56% calc(100% - 4px), 54% 100%, 52% calc(100% - 4px), 50% 100%, 48% calc(100% - 4px), 46% 100%, 44% calc(100% - 4px), 42% 100%, 40% calc(100% - 4px), 38% 100%, 36% calc(100% - 4px), 34% 100%, 32% calc(100% - 4px), 30% 100%, 28% calc(100% - 4px), 26% 100%, 24% calc(100% - 4px), 22% 100%, 20% calc(100% - 4px), 18% 100%, 16% calc(100% - 4px), 14% 100%, 12% calc(100% - 4px), 10% 100%, 8% calc(100% - 4px), 6% 100%, 4% calc(100% - 4px), 2% 100%, 0% calc(100% - 4px)
+            );
+        }
+
+        /* Hand-drawn circle animation */
+        .circle-draw {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawCircle 0.38s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; /* Overshoot curve */
+        }
+        @keyframes drawCircle {
+            to {
+                stroke-dashoffset: 0;
+            }
+        }
+        
+        /* Dot leaders for receipt */
+        .dot-leader {
+            border-bottom: 2px dotted #4d4540;
+            margin: 0 8px;
+            flex-grow: 1;
+            position: relative;
+            top: -6px;
+        }
+
+        /* Scissors and dash pattern */
+        .scissors-divider {
+            position: relative;
+            text-align: center;
+            border-top: 1px dashed #7f756f;
+            margin: 24px 0;
+        }
+        .scissors-divider::after {
+            content: "✂";
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #ffffff;
+            padding: 0 8px;
+            color: #7f756f;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body class="bg-surface-container-low text-on-surface min-h-screen flex flex-col font-body-md antialiased pt-20 pb-28 md:pt-24 md:pb-8">
+<!-- Top Navigation Placeholder (Hidden for this transactional screen as per rules, but keeping a minimalist header if needed. Better to omit full shell). -->
+<header class="fixed top-0 w-full flex justify-between items-center px-margin-desktop h-16 bg-surface-container-low border-b-2 border-primary z-40">
+<div class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary">ORDER TICKET</div>
+<a class="font-label-caps text-label-caps font-bold border-2 border-primary px-4 py-2 hover:bg-primary hover:text-on-primary transition-colors" href="#">CLOSE</a>
+</header>
+<main class="flex-grow flex items-center justify-center p-4">
+<div class="max-w-md w-full">
+<!-- The Order Ticket Centerpiece -->
+<div class="bg-surface-container-lowest text-on-background w-full torn-both relative shadow-none border-x border-ticket-border p-6 md:p-8">
+<!-- Status Mark -->
+<div class="absolute top-4 right-4 md:top-6 md:right-6 transform rotate-6">
+<div class="relative inline-block px-4 py-2">
+<span class="font-headline-md text-headline-md font-bold text-mustard uppercase z-10 relative">FIRED</span>
+<svg class="absolute inset-0 w-full h-full -z-0" preserveaspectratio="none" viewbox="0 0 100 50">
+<path class="circle-draw" d="M10,25 C10,5 90,5 90,25 C90,45 10,45 10,25 Z" fill="none" stroke="#D9A62E" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+</div>
+</div>
+<!-- Header -->
+<div class="mb-6 pt-4">
+<h2 class="font-data-mono text-data-mono text-on-surface-variant mb-1">ORDER #FT-8841</h2>
+<h1 class="font-display-xl text-display-xl font-bold uppercase tracking-tight">LUIGI'S OVEN</h1>
+<p class="font-data-mono text-data-mono text-on-surface-variant mt-2">Sep 28, 2023 - 19:42</p>
+</div>
+<!-- Section Divider -->
+<div class="scissors-divider"></div>
+<!-- Itemized List -->
+<div class="font-data-mono text-data-mono space-y-3 mb-8">
+<div class="flex items-baseline w-full">
+<span class="font-bold mr-2">×2</span>
+<span>Margherita Pizza</span>
+<span class="dot-leader"></span>
+<span>₹380</span>
+</div>
+<div class="flex items-baseline w-full">
+<span class="font-bold mr-2">×1</span>
+<span>Garlic Knots</span>
+<span class="dot-leader"></span>
+<span>₹120</span>
+</div>
+</div>
+<!-- Total -->
+<div class="border-t-2 border-primary pt-4 mb-8">
+<div class="flex justify-between items-baseline font-price-lg text-price-lg font-bold w-full font-data-mono">
+<span>TOTAL</span>
+<span class="dot-leader mx-4"></span>
+<span>₹500</span>
+</div>
+</div>
+<!-- Section Divider -->
+<div class="w-full border-t border-dashed border-outline-variant my-6"></div>
+<!-- Status Flow (Tracker) -->
+<div class="mb-8">
+<h3 class="font-label-caps text-label-caps font-bold text-on-surface-variant mb-4">STATUS</h3>
+<div class="flex flex-col space-y-2">
+<!-- Fired (Active) -->
+<div class="flex items-center">
+<div class="w-2 h-2 bg-mustard mr-4"></div>
+<span class="font-label-caps text-label-caps font-bold text-mustard bg-secondary-fixed/20 px-2 py-1 border border-mustard uppercase">Fired</span>
+</div>
+<!-- Preparing -->
+<div class="flex items-center pl-1 border-l-2 border-surface-variant ml-[3px] py-1">
+<div class="w-2 h-2 bg-surface-variant -ml-[6px] mr-4"></div>
+<span class="font-label-caps text-label-caps text-outline uppercase">Preparing</span>
+</div>
+<!-- Out for delivery -->
+<div class="flex items-center pl-1 border-l-2 border-surface-variant ml-[3px] py-1">
+<div class="w-2 h-2 bg-surface-variant -ml-[6px] mr-4"></div>
+<span class="font-label-caps text-label-caps text-outline uppercase">Out for delivery</span>
+</div>
+<!-- Delivered -->
+<div class="flex items-center pl-1 ml-[3px] py-1">
+<div class="w-2 h-2 bg-surface-variant -ml-[5px] mr-4"></div>
+<span class="font-label-caps text-label-caps text-outline uppercase">Delivered</span>
+</div>
+</div>
+</div>
+<!-- Actions -->
+<div class="flex flex-col gap-4 mt-8">
+<button class="w-full bg-primary-container text-on-primary border-2 border-primary font-label-caps text-label-caps py-4 font-bold tracking-widest uppercase hover:bg-surface-container-lowest hover:text-primary transition-colors flex justify-between items-center px-6">
+<span>TRACK ORDER</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+<a class="text-center font-data-mono text-data-mono text-outline hover:text-primary transition-colors py-2 underline decoration-1 underline-offset-4" href="#">
+                        Back to home
+                    </a>
+</div>
+</div>
+</div>
+</main>
+</body></html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dish Customization - The Order Ticket</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;family=Karla:wght@400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdea1",
+                        "outline-variant": "#d0c4bd",
+                        "outline": "#7f756f",
+                        "surface-variant": "#e5e2da",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#4d4541",
+                        "surface-container-high": "#ebe8df",
+                        "background": "#fcf9f0",
+                        "on-secondary-container": "#725300",
+                        "on-primary-fixed": "#201a17",
+                        "tertiary-fixed-dim": "#a2d39c",
+                        "primary": "#15100d",
+                        "on-tertiary-container": "#6b9967",
+                        "inverse-surface": "#31312b",
+                        "tertiary": "#001602",
+                        "tertiary-container": "#002e08",
+                        "surface-container": "#f1eee5",
+                        "on-secondary-fixed": "#261900",
+                        "on-primary": "#ffffff",
+                        "secondary-fixed-dim": "#f4be45",
+                        "surface": "#fcf9f0",
+                        "surface-tint": "#655d58",
+                        "secondary": "#7a5900",
+                        "primary-fixed": "#ece0da",
+                        "on-primary-container": "#958b86",
+                        "surface-bright": "#fcf9f0",
+                        "on-tertiary": "#ffffff",
+                        "secondary-container": "#fdc74d",
+                        "surface-container-low": "#f6f3ea",
+                        "primary-container": "#2b2521",
+                        "on-surface-variant": "#4d4540",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#cfc4be",
+                        "on-background": "#1c1c17",
+                        "surface-dim": "#dddad1",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "on-tertiary-fixed": "#002204",
+                        "inverse-primary": "#cfc4be",
+                        "surface-container-lowest": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary-fixed": "#bdf0b7",
+                        "surface-container-highest": "#e5e2da",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#255026",
+                        "on-surface": "#1c1c17",
+                        "inverse-on-surface": "#f4f1e8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "gutter": "16px",
+                        "unit": "4px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "data-mono": ["JetBrains Mono"],
+                        "label-caps": ["Barlow Condensed"],
+                        "headline-md": ["Barlow Condensed"],
+                        "body-lg": ["Karla"],
+                        "price-lg": ["JetBrains Mono"],
+                        "headline-lg": ["Barlow Condensed"],
+                        "display-xl": ["Barlow Condensed"],
+                        "body-md": ["Karla"]
+                    },
+                    "fontSize": {
+                        "data-mono": ["14px", { "lineHeight": "1.4", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "label-caps": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "headline-md": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "price-lg": ["20px", { "lineHeight": "1.0", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "display-xl": ["48px", { "lineHeight": "1.1", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .clip-zigzag-top {
+            clip-path: polygon(
+                0% 0%, 2% 2%, 4% 0%, 6% 2%, 8% 0%, 10% 2%, 12% 0%, 14% 2%, 16% 0%, 18% 2%, 
+                20% 0%, 22% 2%, 24% 0%, 26% 2%, 28% 0%, 30% 2%, 32% 0%, 34% 2%, 36% 0%, 38% 2%, 
+                40% 0%, 42% 2%, 44% 0%, 46% 2%, 48% 0%, 50% 2%, 52% 0%, 54% 2%, 56% 0%, 58% 2%, 
+                60% 0%, 62% 2%, 64% 0%, 66% 2%, 68% 0%, 70% 2%, 72% 0%, 74% 2%, 76% 0%, 78% 2%, 
+                80% 0%, 82% 2%, 84% 0%, 86% 2%, 88% 0%, 90% 2%, 92% 0%, 94% 2%, 96% 0%, 98% 2%, 
+                100% 0%, 100% 100%, 0% 100%
+            );
+        }
+        /* Custom checkbox style to look like a heavy X */
+        input[type="checkbox"]:checked {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='black' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+            background-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-surface font-body-md text-on-surface h-screen w-full flex items-center justify-center relative overflow-hidden">
+<!-- Dimmed Background Overlay -->
+<div class="absolute inset-0 bg-primary-container/80 z-10 backdrop-blur-sm"></div>
+<!-- Modal Container -->
+<div class="relative z-20 w-full max-w-[500px] max-h-[90vh] flex flex-col mx-margin-mobile md:mx-auto mt-8">
+<!-- Modal Card (The Ticket) -->
+<div class="bg-surface-container-lowest flex flex-col flex-grow overflow-hidden clip-zigzag-top border-x-2 border-b-2 border-primary pt-6">
+<!-- Header Image & Info -->
+<div class="px-6 pb-6 border-b border-outline-variant">
+<div class="w-full h-48 mb-4 border-2 border-primary relative overflow-hidden">
+<img class="w-full h-full object-cover grayscale-[0.2] contrast-125" data-alt="A top-down view of a freshly baked Margherita pizza in an industrial kitchen setting, high contrast lighting highlighting the bubbly crust, fresh green basil leaves, and melted mozzarella on a dark distressed metal prep table, professional food photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCc_Ecio7PWD2fI93Njnvap-nPmfYN4nRlXTqI1PF2AKO8T2GfZJohDE71ZRt126Hb_KH4RSRMa5F1-VnMj24lPKkw2f8IMI-RywI-Fb7csn7IAwcx7AwHMY3vu1VMmRaDycjGDqTw12I2SoiUd_Jo6CRWLWZoU55Soi2mopDSjNgITOIQPvCxALrfS-6V7dpV2tSTcDCKGONVZk1Rg4rvudZwcZzW8wGATkFYtkcHcyHyASP1mu_dW"/>
+</div>
+<div class="flex justify-between items-start gap-4 mb-2">
+<h1 class="font-headline-lg text-headline-lg uppercase text-primary m-0 tracking-tight">MARGHERITA PIZZA</h1>
+<span class="font-price-lg text-price-lg text-primary whitespace-nowrap">₹380</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant m-0">
+                    Fresh mozzarella, basil, and our signature slow-cooked tomato sauce.
+                </p>
+</div>
+<!-- Scrollable Content -->
+<div class="flex-grow overflow-y-auto px-6 py-6 space-y-8">
+<!-- Section 1: CHOOSE SIZE -->
+<section>
+<h2 class="font-label-caps text-label-caps text-primary mb-4">CHOOSE SIZE</h2>
+<div class="space-y-3">
+<!-- Size Option 1 -->
+<label class="flex items-center justify-between p-3 border-2 border-outline-variant cursor-pointer hover:border-primary hover:bg-surface-container transition-colors group has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+<div class="flex items-center gap-3">
+<input checked="" class="w-5 h-5 border-2 border-primary text-primary focus:ring-primary rounded-none" name="size" type="radio"/>
+<span class="font-label-caps text-label-caps text-primary text-lg">SMALL</span>
+</div>
+</label>
+<!-- Size Option 2 -->
+<label class="flex items-center justify-between p-3 border-2 border-outline-variant cursor-pointer hover:border-primary hover:bg-surface-container transition-colors group has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 border-2 border-primary text-primary focus:ring-primary rounded-none" name="size" type="radio"/>
+<span class="font-label-caps text-label-caps text-primary text-lg">MEDIUM</span>
+</div>
+<span class="font-data-mono text-data-mono text-on-surface-variant">+₹120</span>
+</label>
+<!-- Size Option 3 -->
+<label class="flex items-center justify-between p-3 border-2 border-outline-variant cursor-pointer hover:border-primary hover:bg-surface-container transition-colors group has-[:checked]:border-primary has-[:checked]:bg-surface-container">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 border-2 border-primary text-primary focus:ring-primary rounded-none" name="size" type="radio"/>
+<span class="font-label-caps text-label-caps text-primary text-lg">LARGE</span>
+</div>
+<span class="font-data-mono text-data-mono text-on-surface-variant">+₹240</span>
+</label>
+</div>
+</section>
+<!-- Divider -->
+<div class="flex items-center gap-2 text-outline">
+<div class="h-px bg-outline border-dashed flex-grow border-t-2"></div>
+<span class="material-symbols-outlined text-sm">content_cut</span>
+<span class="font-data-mono text-xs uppercase tracking-widest text-outline">CUSTOMIZE</span>
+<div class="h-px bg-outline border-dashed flex-grow border-t-2"></div>
+</div>
+<!-- Section 2: ADD-ONS -->
+<section>
+<h2 class="font-label-caps text-label-caps text-primary mb-4">ADD-ONS</h2>
+<div class="space-y-4">
+<label class="flex items-center justify-between cursor-pointer group">
+<div class="flex items-center gap-3">
+<input class="w-6 h-6 border-2 border-primary text-primary focus:ring-primary rounded-none bg-transparent" type="checkbox"/>
+<span class="font-label-caps text-label-caps text-primary text-lg group-hover:underline">EXTRA CHEESE</span>
+</div>
+<span class="font-data-mono text-data-mono text-on-surface-variant">+₹60</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<div class="flex items-center gap-3">
+<input class="w-6 h-6 border-2 border-primary text-primary focus:ring-primary rounded-none bg-transparent" type="checkbox"/>
+<span class="font-label-caps text-label-caps text-primary text-lg group-hover:underline">FRESH GARLIC</span>
+</div>
+<span class="font-data-mono text-data-mono text-on-surface-variant">+₹20</span>
+</label>
+<label class="flex items-center justify-between cursor-pointer group">
+<div class="flex items-center gap-3">
+<input class="w-6 h-6 border-2 border-primary text-primary focus:ring-primary rounded-none bg-transparent" type="checkbox"/>
+<span class="font-label-caps text-label-caps text-primary text-lg group-hover:underline">OLIVES</span>
+</div>
+<span class="font-data-mono text-data-mono text-on-surface-variant">+₹40</span>
+</label>
+</div>
+</section>
+<!-- Divider -->
+<div class="flex items-center gap-2 text-outline">
+<div class="h-px bg-outline border-dashed flex-grow border-t-2"></div>
+<span class="material-symbols-outlined text-sm">content_cut</span>
+<span class="font-data-mono text-xs uppercase tracking-widest text-outline">PREFERENCE</span>
+<div class="h-px bg-outline border-dashed flex-grow border-t-2"></div>
+</div>
+<!-- Section 3: SPICE LEVEL -->
+<section>
+<h2 class="font-label-caps text-label-caps text-primary mb-4">SPICE LEVEL</h2>
+<div class="flex gap-2">
+<button class="text-[#ba1a1a] p-2 hover:bg-error-container border-2 border-transparent hover:border-[#ba1a1a] transition-colors" title="Mild">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</button>
+<button class="text-outline p-2 hover:text-[#ba1a1a] hover:bg-error-container border-2 border-transparent hover:border-[#ba1a1a] transition-colors" title="Medium">
+<span class="material-symbols-outlined">local_fire_department</span>
+</button>
+<button class="text-outline p-2 hover:text-[#ba1a1a] hover:bg-error-container border-2 border-transparent hover:border-[#ba1a1a] transition-colors" title="Hot">
+<span class="material-symbols-outlined">local_fire_department</span>
+</button>
+</div>
+</section>
+<!-- Section 4: SPECIAL INSTRUCTIONS -->
+<section>
+<h2 class="font-label-caps text-label-caps text-primary mb-4">SPECIAL INSTRUCTIONS</h2>
+<textarea class="w-full p-3 bg-transparent border-2 border-outline-variant focus:border-primary focus:ring-0 font-data-mono text-sm resize-none rounded-none placeholder:text-outline" placeholder="e.g. no onions, extra crispy..." rows="3"></textarea>
+</section>
+</div>
+<!-- Footer (Sticky-ish) -->
+<div class="border-t-2 border-primary bg-surface-container-low p-4 flex gap-4">
+<!-- Quantity Stepper -->
+<div class="flex border-2 border-primary bg-surface-container-lowest">
+<button class="w-12 h-12 flex items-center justify-center border-r-2 border-primary hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">remove</span>
+</button>
+<div class="w-12 h-12 flex items-center justify-center font-data-mono text-data-mono font-bold text-primary">
+                        1
+                    </div>
+<button class="w-12 h-12 flex items-center justify-center border-l-2 border-primary hover:bg-primary hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<!-- Add to Cart Button -->
+<button class="flex-grow bg-secondary-container text-on-secondary-container border-2 border-primary font-headline-md text-headline-md uppercase flex items-center justify-between px-6 hover:bg-primary hover:text-on-primary transition-colors group">
+<span>ADD TO CART</span>
+<span class="flex items-center gap-2">
+<span class="font-price-lg text-price-lg tracking-normal">— ₹440</span>
+<span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</span>
+</button>
+</div>
+</div>
+</div>
+</body></html>

@@ -1,0 +1,53 @@
+:root {
+  --background: #FCF9F0;
+  --surface-container-lowest: #FFFFFF;
+  --surface-container-low: #F6F3EA;
+  --surface-container: #F1EEE5;
+  --surface-container-high: #EBE8DF;
+  --on-surface: #1C1C17;
+  --on-surface-variant: #4D4540;
+  --outline: #7F756F;
+  --outline-variant: #D0C4BD;
+
+  --primary: #15100D;
+  --on-primary: #FFFFFF;
+
+  --secondary: #7A5900;
+  --secondary-container: #FDC74D;
+  --on-secondary-container: #725300;
+
+  --tertiary: #001602;
+  --tertiary-container: #002E08;
+
+  --error: #BA1A1A;
+  --error-container: #FFDAD6;
+  --on-error-container: #93000A;
+
+  --plum: #5C3A5C;
+
+  --font-display: 'Barlow Condensed', sans-serif;
+  --font-body: 'Karla', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+/* Torn paper zigzag bottom clip path utility */
+.clip-zigzag {
+  clip-path: polygon(
+    0 0, 100% 0, 100% calc(100% - 8px),
+    95% 100%, 90% calc(100% - 8px),
+    85% 100%, 80% calc(100% - 8px),
+    75% 100%, 70% calc(100% - 8px),
+    65% 100%, 60% calc(100% - 8px),
+    55% 100%, 50% calc(100% - 8px),
+    45% 100%, 40% calc(100% - 8px),
+    35% 100%, 30% calc(100% - 8px),
+    25% 100%, 20% calc(100% - 8px),
+    15% 100%, 10% calc(100% - 8px),
+    5% 100%, 0 calc(100% - 8px)
+  );
+}
+
+/* Luggage tag clipped corner styling */
+.clip-luggage-tag {
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}

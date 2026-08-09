@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Order Receipt - The Order Ticket</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700;800&amp;family=Karla:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-surface": "#1c1c17",
+                        "outline": "#7f756f",
+                        "secondary-container": "#fdc74d",
+                        "error": "#ba1a1a",
+                        "primary-container": "#2b2521",
+                        "surface": "#fcf9f0",
+                        "primary-fixed-dim": "#cfc4be",
+                        "outline-variant": "#d0c4bd",
+                        "on-primary-container": "#958b86",
+                        "error-container": "#ffdad6",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-fixed": "#201a17",
+                        "on-tertiary-container": "#6b9967",
+                        "on-background": "#1c1c17",
+                        "surface-container-high": "#ebe8df",
+                        "surface-dim": "#dddad1",
+                        "surface-container-highest": "#e5e2da",
+                        "on-primary-fixed-variant": "#4d4541",
+                        "on-error": "#ffffff",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "secondary-fixed": "#ffdea1",
+                        "surface-tint": "#655d58",
+                        "on-surface-variant": "#4d4540",
+                        "surface-variant": "#e5e2da",
+                        "on-tertiary-fixed-variant": "#255026",
+                        "tertiary": "#001602",
+                        "on-secondary-container": "#725300",
+                        "surface-bright": "#fcf9f0",
+                        "on-secondary-fixed": "#261900",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-low": "#f6f3ea",
+                        "primary-fixed": "#ece0da",
+                        "primary": "#15100d",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#31312b",
+                        "tertiary-container": "#002e08",
+                        "on-primary": "#ffffff",
+                        "inverse-primary": "#cfc4be",
+                        "surface-container": "#f1eee5",
+                        "secondary": "#7a5900",
+                        "tertiary-fixed-dim": "#a2d39c",
+                        "secondary-fixed-dim": "#f4be45",
+                        "tertiary-fixed": "#bdf0b7",
+                        "background": "#fcf9f0",
+                        "on-tertiary-fixed": "#002204",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f4f1e8"
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    },
+                    spacing: {
+                        "margin-desktop": "32px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "unit": "4px",
+                        "gutter": "16px"
+                    },
+                    fontFamily: {
+                        "label-caps": ["Barlow Condensed"],
+                        "headline-md": ["Barlow Condensed"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-lg": ["Karla"],
+                        "price-lg": ["JetBrains Mono"],
+                        "display-xl": ["Barlow Condensed"],
+                        "headline-lg": ["Barlow Condensed"],
+                        "body-md": ["Karla"]
+                    },
+                    fontSize: {
+                        "label-caps": ["14px", { lineHeight: "1.0", letterSpacing: "0.05em", fontWeight: "600" }],
+                        "headline-md": ["24px", { lineHeight: "1.2", fontWeight: "600" }],
+                        "data-mono": ["14px", { lineHeight: "1.4", letterSpacing: "-0.02em", fontWeight: "500" }],
+                        "body-lg": ["18px", { lineHeight: "1.5", fontWeight: "400" }],
+                        "price-lg": ["20px", { lineHeight: "1.0", fontWeight: "700" }],
+                        "display-xl": ["48px", { lineHeight: "1.1", fontWeight: "700" }],
+                        "headline-lg": ["32px", { lineHeight: "1.2", fontWeight: "700" }],
+                        "body-md": ["16px", { lineHeight: "1.5", fontWeight: "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined.fill-icon {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Zigzag cut effect */
+        .receipt-cut-edge {
+            clip-path: polygon(
+                0% 0%, 
+                100% 0%, 
+                100% calc(100% - 8px), 
+                calc(100% - 8px) 100%, 
+                calc(100% - 16px) calc(100% - 8px),
+                calc(100% - 24px) 100%,
+                calc(100% - 32px) calc(100% - 8px),
+                calc(100% - 40px) 100%,
+                calc(100% - 48px) calc(100% - 8px),
+                calc(100% - 56px) 100%,
+                calc(100% - 64px) calc(100% - 8px),
+                calc(100% - 72px) 100%,
+                calc(100% - 80px) calc(100% - 8px),
+                calc(100% - 88px) 100%,
+                calc(100% - 96px) calc(100% - 8px),
+                calc(100% - 104px) 100%,
+                calc(100% - 112px) calc(100% - 8px),
+                calc(100% - 120px) 100%,
+                calc(100% - 128px) calc(100% - 8px),
+                calc(100% - 136px) 100%,
+                calc(100% - 144px) calc(100% - 8px),
+                calc(100% - 152px) 100%,
+                calc(100% - 160px) calc(100% - 8px),
+                calc(100% - 168px) 100%,
+                calc(100% - 176px) calc(100% - 8px),
+                calc(100% - 184px) 100%,
+                calc(100% - 192px) calc(100% - 8px),
+                calc(100% - 200px) 100%,
+                calc(100% - 208px) calc(100% - 8px),
+                calc(100% - 216px) 100%,
+                calc(100% - 224px) calc(100% - 8px),
+                calc(100% - 232px) 100%,
+                calc(100% - 240px) calc(100% - 8px),
+                calc(100% - 248px) 100%,
+                calc(100% - 256px) calc(100% - 8px),
+                calc(100% - 264px) 100%,
+                calc(100% - 272px) calc(100% - 8px),
+                calc(100% - 280px) 100%,
+                calc(100% - 288px) calc(100% - 8px),
+                calc(100% - 296px) 100%,
+                calc(100% - 304px) calc(100% - 8px),
+                calc(100% - 312px) 100%,
+                calc(100% - 320px) calc(100% - 8px),
+                calc(100% - 328px) 100%,
+                calc(100% - 336px) calc(100% - 8px),
+                calc(100% - 344px) 100%,
+                calc(100% - 352px) calc(100% - 8px),
+                calc(100% - 360px) 100%,
+                calc(100% - 368px) calc(100% - 8px),
+                calc(100% - 376px) 100%,
+                calc(100% - 384px) calc(100% - 8px),
+                calc(100% - 392px) 100%,
+                calc(100% - 400px) calc(100% - 8px),
+                calc(100% - 408px) 100%,
+                calc(100% - 416px) calc(100% - 8px),
+                calc(100% - 424px) 100%,
+                calc(100% - 432px) calc(100% - 8px),
+                calc(100% - 440px) 100%,
+                calc(100% - 448px) calc(100% - 8px),
+                calc(100% - 456px) 100%,
+                calc(100% - 464px) calc(100% - 8px),
+                calc(100% - 472px) 100%,
+                calc(100% - 480px) calc(100% - 8px),
+                calc(100% - 488px) 100%,
+                calc(100% - 496px) calc(100% - 8px),
+                calc(100% - 504px) 100%,
+                calc(100% - 512px) calc(100% - 8px),
+                calc(100% - 520px) 100%,
+                calc(100% - 528px) calc(100% - 8px),
+                calc(100% - 536px) 100%,
+                calc(100% - 544px) calc(100% - 8px),
+                calc(100% - 552px) 100%,
+                calc(100% - 560px) calc(100% - 8px),
+                calc(100% - 568px) 100%,
+                calc(100% - 576px) calc(100% - 8px),
+                calc(100% - 584px) 100%,
+                calc(100% - 592px) calc(100% - 8px),
+                calc(100% - 600px) 100%,
+                0% 100%
+            );
+        }
+        
+        .dot-leader {
+            border-bottom: 2px dotted theme('colors.outline');
+            flex-grow: 1;
+            margin: 0 8px;
+            position: relative;
+            top: -6px;
+        }
+
+        .brutalist-button {
+            border: 2px solid theme('colors.primary');
+            border-radius: 0;
+            transition: all 0.1s ease-in-out;
+        }
+        .brutalist-button:hover {
+            background-color: theme('colors.primary');
+            color: theme('colors.on-primary');
+        }
+        .brutalist-button-solid {
+            border: 2px solid theme('colors.primary');
+            background-color: theme('colors.secondary-fixed-dim');
+            color: theme('colors.primary');
+            border-radius: 0;
+            transition: all 0.1s ease-in-out;
+        }
+        .brutalist-button-solid:hover {
+            background-color: theme('colors.primary');
+            color: theme('colors.on-primary');
+        }
+        .brutalist-input {
+            border: 1px solid theme('colors.outline-variant');
+            border-radius: 0;
+            transition: border-width 0.1s ease;
+        }
+        .brutalist-input:focus {
+            border: 2px solid theme('colors.primary');
+            outline: none;
+            box-shadow: none;
+        }
+    </style>
+</head>
+<body class="bg-surface-container-low min-h-screen flex flex-col font-body-md text-on-surface">
+<!-- Top Navigation (Expo Rail) -->
+<header class="bg-surface-container-low dark:bg-primary-container border-b-2 border-primary fixed top-0 w-full z-50 h-16 flex justify-between items-center px-margin-desktop max-w-container-max mx-auto">
+<div class="font-display-xl text-display-xl text-primary dark:text-primary-fixed-dim uppercase tracking-tight">THE ORDER TICKET</div>
+<nav aria-label="Main Navigation" class="flex h-full border-l-2 border-primary">
+<a class="text-outline dark:text-on-primary-container opacity-60 font-label-caps text-label-caps flex items-center px-6 h-full border-r-2 border-primary hover:bg-primary hover:text-on-primary transition-colors duration-100 uppercase" href="#">ACTIVE</a>
+<!-- Active Tab: History (closest match to semantic intent) -->
+<a class="text-on-surface dark:text-on-primary-container font-label-caps text-label-caps flex items-center px-6 h-full border-r-2 border-primary relative after:content-[''] after:absolute after:-top-2 after:left-1/2 after:-translate-x-1/2 after:w-6 after:h-6 after:bg-[url('https://fonts.gstatic.com/s/i/short-term/release/materialsymbolsoutlined/attach_file/default/24px.svg')] bg-surface-container-highest uppercase font-bold translate-y-0.5 duration-75" href="#">COMPLETED</a>
+<a class="text-outline dark:text-on-primary-container opacity-60 font-label-caps text-label-caps flex items-center px-6 h-full border-r-2 border-primary hover:bg-primary hover:text-on-primary transition-colors duration-100 uppercase" href="#">VOIDED</a>
+</nav>
+<div class="flex gap-4">
+<button class="text-primary hover:bg-surface-container-highest p-2 border-2 border-transparent hover:border-primary transition-colors">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-primary hover:bg-surface-container-highest p-2 border-2 border-transparent hover:border-primary transition-colors">
+<span class="material-symbols-outlined">person</span>
+</button>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-grow pt-24 pb-16 px-margin-desktop max-w-4xl mx-auto w-full flex flex-col gap-8">
+<!-- Action Bar -->
+<div class="flex justify-between items-end w-full max-w-2xl mx-auto">
+<h1 class="font-headline-lg text-headline-lg uppercase text-primary">Receipt Details</h1>
+<div class="flex gap-4">
+<button class="brutalist-button font-label-caps text-label-caps px-6 py-2 uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">download</span>
+                    Download PDF
+                </button>
+<button class="brutalist-button-solid font-label-caps text-label-caps px-6 py-2 uppercase flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">replay</span>
+                    Reorder
+                </button>
+</div>
+</div>
+<!-- The Thermal Receipt -->
+<article class="bg-surface-container-lowest w-full max-w-2xl mx-auto border-2 border-primary relative shadow-[4px_4px_0px_theme('colors.outline-variant')]">
+<!-- Luggage Tag / Status -->
+<div class="absolute -top-4 -right-4 bg-tertiary-fixed border-2 border-primary px-4 py-1 flex items-center gap-2 font-label-caps text-label-caps uppercase text-on-tertiary-fixed transform rotate-3">
+<span class="material-symbols-outlined text-sm fill-icon">check_circle</span>
+                Fulfilled
+            </div>
+<div class="p-8 pb-12 flex flex-col gap-6">
+<!-- Receipt Header -->
+<header class="text-center flex flex-col gap-2 border-b-2 border-dashed border-outline-variant pb-6">
+<h2 class="font-display-xl text-display-xl uppercase text-primary tracking-tight">THE BURGER JOINT</h2>
+<div class="font-data-mono text-data-mono text-on-surface-variant flex flex-col gap-1">
+<p>123 CULINARY ROW, STATION 4</p>
+<p>+91 98765 43210</p>
+<p>INFO@THEBURGERJOINT.COM</p>
+</div>
+</header>
+<!-- Order Meta -->
+<div class="flex justify-between font-data-mono text-data-mono text-primary font-bold pt-2">
+<span>ORDER #FT-8841</span>
+<span>24 OCT 2023, 19:42</span>
+</div>
+<!-- Section Divider -->
+<div class="flex items-center gap-4 text-outline-variant my-2">
+<div class="h-[2px] bg-outline-variant flex-grow border-dashed border-t-2 border-outline-variant bg-transparent"></div>
+<span class="material-symbols-outlined text-primary text-sm transform -rotate-90">content_cut</span>
+<span class="font-label-caps text-label-caps uppercase text-primary px-2">ITEMS</span>
+<div class="h-[2px] bg-outline-variant flex-grow border-dashed border-t-2 border-outline-variant bg-transparent"></div>
+</div>
+<!-- Itemized List -->
+<ul class="flex flex-col gap-3 font-data-mono text-data-mono w-full">
+<li class="flex items-baseline w-full">
+<span class="font-bold w-8 shrink-0">×2</span>
+<span class="shrink-0">Bacon Cheeseburger</span>
+<div class="dot-leader"></div>
+<span class="shrink-0 font-bold">₹580</span>
+</li>
+<li class="flex items-baseline w-full">
+<span class="font-bold w-8 shrink-0">×1</span>
+<span class="shrink-0">Truffle Fries</span>
+<div class="dot-leader"></div>
+<span class="shrink-0 font-bold">₹180</span>
+</li>
+<li class="flex items-baseline w-full">
+<span class="font-bold w-8 shrink-0">×1</span>
+<span class="shrink-0">Classic Shake</span>
+<div class="dot-leader"></div>
+<span class="shrink-0 font-bold">₹160</span>
+</li>
+</ul>
+<!-- Section Divider -->
+<div class="flex items-center gap-4 text-outline-variant my-2 mt-4">
+<div class="h-[2px] bg-outline-variant flex-grow border-dashed border-t-2 border-outline-variant bg-transparent"></div>
+<span class="material-symbols-outlined text-primary text-sm transform -rotate-90">content_cut</span>
+<span class="font-label-caps text-label-caps uppercase text-primary px-2">ORDER TOTALS</span>
+<div class="h-[2px] bg-outline-variant flex-grow border-dashed border-t-2 border-outline-variant bg-transparent"></div>
+</div>
+<!-- Cost Breakdown -->
+<div class="flex flex-col gap-2 font-data-mono text-data-mono w-full">
+<div class="flex items-baseline w-full text-on-surface-variant">
+<span class="shrink-0">Subtotal</span>
+<div class="dot-leader"></div>
+<span class="shrink-0">₹920</span>
+</div>
+<div class="flex items-baseline w-full text-on-surface-variant">
+<span class="shrink-0">Delivery Fee</span>
+<div class="dot-leader"></div>
+<span class="shrink-0">₹40</span>
+</div>
+<div class="flex items-baseline w-full text-on-surface-variant">
+<span class="shrink-0">Taxes</span>
+<div class="dot-leader"></div>
+<span class="shrink-0">₹98</span>
+</div>
+<div class="flex items-baseline w-full font-price-lg text-price-lg text-primary border-t-4 border-primary pt-4 mt-2">
+<span class="shrink-0 uppercase font-bold">TOTAL</span>
+<div class="dot-leader opacity-0"></div>
+<span class="shrink-0 font-bold">₹1058</span>
+</div>
+</div>
+<!-- Receipt Footer Info -->
+<footer class="font-data-mono text-data-mono text-sm text-outline mt-8 pt-6 border-t-2 border-dashed border-outline-variant flex flex-col gap-2">
+<p>Payment: Visa **** 1234</p>
+<p>Delivery Address: 123 Culinary Row, Station 4</p>
+</footer>
+</div>
+<!-- Torn Bottom Edge -->
+<div class="receipt-cut-edge bg-surface-container-lowest h-6 w-[calc(100%+4px)] absolute -bottom-[22px] -left-[2px] border-x-2 border-primary z-10"></div>
+<!-- Hack for border bottom on zigzag -->
+<div class="receipt-cut-edge bg-primary h-6 w-full absolute -bottom-[24px] left-0 z-0 opacity-100"></div>
+</article>
+<!-- Rate this Order Section -->
+<section class="w-full max-w-2xl mx-auto bg-surface-container p-8 border-2 border-outline-variant mt-8 flex flex-col gap-6">
+<h3 class="font-headline-md text-headline-md uppercase text-primary border-b-2 border-primary pb-2 inline-block self-start">HOW WAS THE SERVICE?</h3>
+<div class="flex flex-col sm:flex-row gap-8 justify-between">
+<!-- Service Rating -->
+<div class="flex flex-col gap-3">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">Overall Rating</span>
+<div class="flex gap-2 text-primary cursor-pointer">
+<span class="material-symbols-outlined fill-icon text-3xl hover:scale-110 transition-transform">star</span>
+<span class="material-symbols-outlined fill-icon text-3xl hover:scale-110 transition-transform">star</span>
+<span class="material-symbols-outlined fill-icon text-3xl hover:scale-110 transition-transform">star</span>
+<span class="material-symbols-outlined fill-icon text-3xl hover:scale-110 transition-transform">star</span>
+<span class="material-symbols-outlined text-3xl hover:scale-110 transition-transform text-outline">star</span>
+</div>
+</div>
+<!-- Food Rating (Flames) -->
+<div class="flex flex-col gap-3">
+<span class="font-label-caps text-label-caps uppercase text-on-surface-variant">FLAME RATING (FOOD)</span>
+<div class="flex gap-2 text-[#ba1a1a] cursor-pointer">
+<span class="material-symbols-outlined fill-icon text-3xl hover:scale-110 transition-transform">local_fire_department</span>
+<span class="material-symbols-outlined fill-icon text-3xl hover:scale-110 transition-transform">local_fire_department</span>
+<span class="material-symbols-outlined text-3xl hover:scale-110 transition-transform text-outline">local_fire_department</span>
+</div>
+</div>
+</div>
+<!-- Notes Field -->
+<div class="flex flex-col gap-2 mt-4">
+<label class="font-label-caps text-label-caps uppercase text-on-surface-variant" for="kitchen-notes">Add a note for the kitchen...</label>
+<textarea class="brutalist-input w-full bg-surface-container-lowest font-data-mono text-data-mono p-3 resize-y" id="kitchen-notes" placeholder="Any specific feedback?" rows="3"></textarea>
+</div>
+<button class="brutalist-button-solid font-headline-md text-headline-md px-8 py-3 uppercase self-start flex items-center gap-2 mt-2">
+                SUBMIT REVIEW
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-dashed border-outline flex flex-col items-center justify-center py-8 bg-surface-dim dark:bg-primary px-margin-mobile md:px-margin-desktop gap-4 mt-auto">
+<div class="font-label-caps text-label-caps text-primary mb-2">THE ORDER TICKET</div>
+<div class="flex flex-col md:flex-row gap-6 font-data-mono text-data-mono text-on-surface dark:text-on-primary-container">
+<a class="text-outline dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Terms of Service</a>
+<a class="text-outline dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">API Access</a>
+<a class="text-outline dark:text-on-primary-container hover:text-secondary dark:hover:text-secondary-fixed-dim transition-colors" href="#">Privacy</a>
+</div>
+<p class="font-data-mono text-data-mono text-outline text-xs mt-4">© 2024 THE ORDER TICKET SYSTEM - KITCHEN USE ONLY</p>
+</footer>
+</body></html>

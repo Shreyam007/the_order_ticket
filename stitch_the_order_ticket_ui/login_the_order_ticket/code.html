@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Order Ticket - Login</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&amp;family=JetBrains+Mono:wght@500;700&amp;family=Karla:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#2b2521",
+                        "surface-tint": "#655d58",
+                        "surface-container-low": "#f6f3ea",
+                        "inverse-surface": "#31312b",
+                        "surface-variant": "#e5e2da",
+                        "on-tertiary-fixed": "#002204",
+                        "tertiary-fixed": "#bdf0b7",
+                        "on-surface-variant": "#4d4540",
+                        "on-error-container": "#93000a",
+                        "background": "#fcf9f0",
+                        "secondary-fixed": "#ffdea1",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "on-secondary-fixed": "#261900",
+                        "inverse-on-surface": "#f4f1e8",
+                        "surface": "#fcf9f0",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#6b9967",
+                        "on-secondary-container": "#725300",
+                        "tertiary-container": "#002e08",
+                        "tertiary": "#001602",
+                        "inverse-primary": "#cfc4be",
+                        "on-secondary": "#ffffff",
+                        "surface-bright": "#fcf9f0",
+                        "secondary-fixed-dim": "#f4be45",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#255026",
+                        "primary-fixed": "#ece0da",
+                        "secondary": "#7a5900",
+                        "on-primary": "#ffffff",
+                        "on-background": "#1c1c17",
+                        "outline-variant": "#d0c4bd",
+                        "surface-container-high": "#ebe8df",
+                        "on-primary-fixed-variant": "#4d4541",
+                        "tertiary-fixed-dim": "#a2d39c",
+                        "on-primary-fixed": "#201a17",
+                        "on-surface": "#1c1c17",
+                        "secondary-container": "#fdc74d",
+                        "on-primary-container": "#958b86",
+                        "outline": "#7f756f",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#cfc4be",
+                        "surface-dim": "#dddad1",
+                        "surface-container-highest": "#e5e2da",
+                        "surface-container": "#f1eee5",
+                        "error": "#ba1a1a",
+                        "on-error": "#ffffff",
+                        "primary": "#15100d"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "unit": "4px",
+                        "gutter": "16px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Karla"],
+                        "label-caps": ["Barlow Condensed"],
+                        "body-lg": ["Karla"],
+                        "display-xl": ["Barlow Condensed"],
+                        "price-lg": ["JetBrains Mono"],
+                        "headline-lg": ["Barlow Condensed"],
+                        "headline-md": ["Barlow Condensed"],
+                        "data-mono": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "label-caps": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "display-xl": ["48px", { "lineHeight": "1.1", "fontWeight": "700" }],
+                        "price-lg": ["20px", { "lineHeight": "1.0", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "data-mono": ["14px", { "lineHeight": "1.4", "letterSpacing": "-0.02em", "fontWeight": "500" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .zigzag-top {
+            clip-path: polygon(0% 10px, 2% 0, 4% 10px, 6% 0, 8% 10px, 10% 0, 12% 10px, 14% 0, 16% 10px, 18% 0, 20% 10px, 22% 0, 24% 10px, 26% 0, 28% 10px, 30% 0, 32% 10px, 34% 0, 36% 10px, 38% 0, 40% 10px, 42% 0, 44% 10px, 46% 0, 48% 10px, 50% 0, 52% 10px, 54% 0, 56% 10px, 58% 0, 60% 10px, 62% 0, 64% 10px, 66% 0, 68% 10px, 70% 0, 72% 10px, 74% 0, 76% 10px, 78% 0, 80% 10px, 82% 0, 84% 10px, 86% 0, 88% 10px, 90% 0, 92% 10px, 94% 0, 96% 10px, 98% 0, 100% 10px, 100% 100%, 0% 100%);
+            padding-top: 24px; /* Ensure content isn't clipped */
+        }
+        .scissors-divider {
+            position: relative;
+            text-align: center;
+            border-bottom: 1px dashed #7f756f;
+            line-height: 0.1em;
+            margin: 20px 0;
+        }
+        .scissors-divider span {
+            background: #ffffff;
+            padding: 0 10px;
+            color: #7f756f;
+        }
+        /* Custom Colors matching prompt if not exactly in config */
+        .text-charcoal { color: #2B2521; }
+        .text-mustard { color: #D9A62E; }
+        .bg-mustard { background-color: #D9A62E; }
+        .text-grey { color: #948A7C; }
+        .border-hairline { border-color: #E4DFD3; }
+    </style>
+</head>
+<body class="bg-surface-container-low min-h-screen flex items-center justify-center p-4">
+<!-- Suppressed TopAppBar and BottomNavBar as this is a transactional Login screen -->
+<main class="w-full max-w-[380px]">
+<!-- Central Card -->
+<div class="bg-white rounded border border-outline w-full pb-8 shadow-none relative">
+<!-- Torn Paper Edge -->
+<div class="zigzag-top bg-white w-full absolute top-0 left-0 h-4 border-t border-outline"></div>
+<div class="pt-12 px-8 flex flex-col items-center">
+<!-- Brand Header -->
+<div class="flex flex-col items-center mb-8">
+<span class="material-symbols-outlined text-mustard text-4xl mb-2" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+<h1 class="font-headline-lg text-headline-lg text-charcoal tracking-tighter uppercase">ORDER TICKET</h1>
+<p class="font-data-mono text-data-mono text-[#6B6259] mt-2">ORDER AHEAD · EAT WELL</p>
+</div>
+<div class="w-full scissors-divider">
+<span class="material-symbols-outlined text-sm">content_cut</span>
+</div>
+<!-- Login Form -->
+<form class="w-full flex flex-col gap-4 mt-6">
+<div class="flex flex-col gap-1">
+<label class="sr-only font-label-caps text-label-caps" for="email">Email</label>
+<input class="w-full border border-hairline rounded-[2px] p-3 font-body-md text-body-md focus:border-primary-container focus:border-2 focus:ring-0 transition-all outline-none" id="email" placeholder="Email Address" required="" type="email"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="sr-only font-label-caps text-label-caps" for="password">Password</label>
+<input class="w-full border border-hairline rounded-[2px] p-3 font-body-md text-body-md focus:border-primary-container focus:border-2 focus:ring-0 transition-all outline-none" id="password" placeholder="Password" required="" type="password"/>
+</div>
+<button class="w-full bg-mustard text-white font-label-caps text-label-caps py-4 mt-2 rounded-[2px] border-2 border-transparent hover:bg-primary-container hover:text-white transition-colors flex justify-between items-center px-4 uppercase" type="submit">
+<span>Sign In</span>
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</form>
+<!-- Footer Links -->
+<div class="w-full flex flex-col items-center mt-8 gap-4">
+<a class="font-body-md text-body-md text-charcoal underline hover:text-primary transition-colors flex items-center gap-1" href="#">
+                        New here? Create account
+                        <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+<a class="font-body-md text-sm text-grey hover:text-charcoal transition-colors" href="#">
+                        Forgot password
+                    </a>
+</div>
+</div>
+</div>
+</main>
+</body></html>

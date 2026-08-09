@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Order Ticket - Live Tracking</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&amp;family=Karla:wght@400;500&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "on-tertiary-fixed-variant": "#255026",
+                        "surface-container-lowest": "#ffffff",
+                        "secondary-container": "#fdc74d",
+                        "background": "#fcf9f0",
+                        "secondary-fixed-dim": "#f4be45",
+                        "tertiary-fixed-dim": "#a2d39c",
+                        "surface-container-highest": "#e5e2da",
+                        "surface-container": "#f1eee5",
+                        "on-surface": "#1c1c17",
+                        "on-secondary-container": "#725300",
+                        "tertiary-fixed": "#bdf0b7",
+                        "surface-dim": "#dddad1",
+                        "on-error": "#ffffff",
+                        "on-surface-variant": "#4d4540",
+                        "surface": "#fcf9f0",
+                        "secondary-fixed": "#ffdea1",
+                        "inverse-primary": "#cfc4be",
+                        "on-secondary-fixed": "#261900",
+                        "on-primary-fixed-variant": "#4d4541",
+                        "outline": "#7f756f",
+                        "inverse-surface": "#31312b",
+                        "on-tertiary-container": "#6b9967",
+                        "on-background": "#1c1c17",
+                        "primary-container": "#2b2521",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "inverse-on-surface": "#f4f1e8",
+                        "secondary": "#7a5900",
+                        "outline-variant": "#d0c4bd",
+                        "primary": "#15100d",
+                        "surface-variant": "#e5e2da",
+                        "error-container": "#ffdad6",
+                        "error": "#ba1a1a",
+                        "surface-container-low": "#f6f3ea",
+                        "on-tertiary-fixed": "#002204",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-high": "#ebe8df",
+                        "surface-tint": "#655d58",
+                        "primary-fixed-dim": "#cfc4be",
+                        "tertiary": "#001602",
+                        "primary-fixed": "#ece0da",
+                        "on-secondary": "#ffffff",
+                        "on-primary-fixed": "#201a17",
+                        "surface-bright": "#fcf9f0",
+                        "tertiary-container": "#002e08",
+                        "on-primary-container": "#958b86"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1280px",
+                        "unit": "4px",
+                        "margin-desktop": "32px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Barlow Condensed"],
+                        "headline-md": ["Barlow Condensed"],
+                        "body-md": ["Karla"],
+                        "display-xl": ["Barlow Condensed"],
+                        "data-mono": ["JetBrains Mono"],
+                        "price-lg": ["JetBrains Mono"],
+                        "label-caps": ["Barlow Condensed"],
+                        "body-lg": ["Karla"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "display-xl": ["48px", {"lineHeight": "1.1", "fontWeight": "700"}],
+                        "data-mono": ["14px", {"lineHeight": "1.4", "letterSpacing": "-0.02em", "fontWeight": "500"}],
+                        "price-lg": ["20px", {"lineHeight": "1.0", "fontWeight": "700"}],
+                        "label-caps": ["14px", {"lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body {
+            background-color: #F6F3EA; /* surface-container-low fallback */
+            color: #15100d; /* primary fallback */
+        }
+        .scissors-divider {
+            position: relative;
+            text-align: center;
+            overflow: hidden;
+            color: #7f756f;
+        }
+        .scissors-divider::before,
+        .scissors-divider::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 50%;
+            border-top: 1px dashed #7f756f;
+        }
+        .scissors-divider::before {
+            right: 50%;
+            margin-right: 40px;
+        }
+        .scissors-divider::after {
+            left: 50%;
+            margin-left: 40px;
+        }
+        .clip-path-bottom {
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 4px) 100%, calc(100% - 8px) calc(100% - 8px), calc(100% - 12px) 100%, calc(100% - 16px) calc(100% - 8px), calc(100% - 20px) 100%, calc(100% - 24px) calc(100% - 8px), calc(100% - 28px) 100%, calc(100% - 32px) calc(100% - 8px), calc(100% - 36px) 100%, calc(100% - 40px) calc(100% - 8px), calc(100% - 44px) 100%, calc(100% - 48px) calc(100% - 8px), calc(100% - 52px) 100%, calc(100% - 56px) calc(100% - 8px), calc(100% - 60px) 100%, calc(100% - 64px) calc(100% - 8px), calc(100% - 68px) 100%, calc(100% - 72px) calc(100% - 8px), calc(100% - 76px) 100%, calc(100% - 80px) calc(100% - 8px), calc(100% - 84px) 100%, calc(100% - 88px) calc(100% - 8px), calc(100% - 92px) 100%, calc(100% - 96px) calc(100% - 8px), calc(100% - 100px) 100%, calc(100% - 104px) calc(100% - 8px), calc(100% - 108px) 100%, calc(100% - 112px) calc(100% - 8px), calc(100% - 116px) 100%, calc(100% - 120px) calc(100% - 8px), calc(100% - 124px) 100%, calc(100% - 128px) calc(100% - 8px), calc(100% - 132px) 100%, calc(100% - 136px) calc(100% - 8px), calc(100% - 140px) 100%, calc(100% - 144px) calc(100% - 8px), calc(100% - 148px) 100%, calc(100% - 152px) calc(100% - 8px), calc(100% - 156px) 100%, calc(100% - 160px) calc(100% - 8px), calc(100% - 164px) 100%, calc(100% - 168px) calc(100% - 8px), calc(100% - 172px) 100%, calc(100% - 176px) calc(100% - 8px), calc(100% - 180px) 100%, calc(100% - 184px) calc(100% - 8px), calc(100% - 188px) 100%, calc(100% - 192px) calc(100% - 8px), calc(100% - 196px) 100%, calc(100% - 200px) calc(100% - 8px), calc(100% - 204px) 100%, calc(100% - 208px) calc(100% - 8px), calc(100% - 212px) 100%, calc(100% - 216px) calc(100% - 8px), calc(100% - 220px) 100%, calc(100% - 224px) calc(100% - 8px), calc(100% - 228px) 100%, calc(100% - 232px) calc(100% - 8px), calc(100% - 236px) 100%, calc(100% - 240px) calc(100% - 8px), calc(100% - 244px) 100%, calc(100% - 248px) calc(100% - 8px), calc(100% - 252px) 100%, calc(100% - 256px) calc(100% - 8px), calc(100% - 260px) 100%, calc(100% - 264px) calc(100% - 8px), calc(100% - 268px) 100%, calc(100% - 272px) calc(100% - 8px), calc(100% - 276px) 100%, calc(100% - 280px) calc(100% - 8px), calc(100% - 284px) 100%, calc(100% - 288px) calc(100% - 8px), calc(100% - 292px) 100%, calc(100% - 296px) calc(100% - 8px), calc(100% - 300px) 100%, calc(100% - 304px) calc(100% - 8px), calc(100% - 308px) 100%, calc(100% - 312px) calc(100% - 8px), calc(100% - 316px) 100%, calc(100% - 320px) calc(100% - 8px), calc(100% - 324px) 100%, calc(100% - 328px) calc(100% - 8px), calc(100% - 332px) 100%, calc(100% - 336px) calc(100% - 8px), calc(100% - 340px) 100%, calc(100% - 344px) calc(100% - 8px), calc(100% - 348px) 100%, calc(100% - 352px) calc(100% - 8px), calc(100% - 356px) 100%, calc(100% - 360px) calc(100% - 8px), calc(100% - 364px) 100%, calc(100% - 368px) calc(100% - 8px), calc(100% - 372px) 100%, calc(100% - 376px) calc(100% - 8px), calc(100% - 380px) 100%, calc(100% - 384px) calc(100% - 8px), calc(100% - 388px) 100%, calc(100% - 392px) calc(100% - 8px), calc(100% - 396px) 100%, calc(100% - 400px) calc(100% - 8px), calc(100% - 404px) 100%, calc(100% - 408px) calc(100% - 8px), calc(100% - 412px) 100%, calc(100% - 416px) calc(100% - 8px), calc(100% - 420px) 100%, calc(100% - 424px) calc(100% - 8px), calc(100% - 428px) 100%, calc(100% - 432px) calc(100% - 8px), calc(100% - 436px) 100%, calc(100% - 440px) calc(100% - 8px), calc(100% - 444px) 100%, calc(100% - 448px) calc(100% - 8px), calc(100% - 452px) 100%, calc(100% - 456px) calc(100% - 8px), calc(100% - 460px) 100%, calc(100% - 464px) calc(100% - 8px), calc(100% - 468px) 100%, calc(100% - 472px) calc(100% - 8px), calc(100% - 476px) 100%, calc(100% - 480px) calc(100% - 8px), calc(100% - 484px) 100%, calc(100% - 488px) calc(100% - 8px), calc(100% - 492px) 100%, calc(100% - 496px) calc(100% - 8px), calc(100% - 500px) 100%, 0 100%);
+        }
+    </style>
+</head>
+<body class="bg-surface-container-low text-primary font-body-md antialiased min-h-screen flex flex-col items-center justify-center p-4 md:p-8">
+<!-- Top Navigation (Suppressed per logic, user is deep in a focused journey tracking an order) -->
+<main class="w-full max-w-md mx-auto">
+<!-- The Ticket Card -->
+<article class="bg-surface-container-lowest border border-outline relative mb-6 pb-6 clip-path-bottom">
+<!-- Bulldog Clip & Header -->
+<div class="flex flex-col items-center pt-2 pb-4 border-b border-outline bg-surface-container-highest relative">
+<span class="material-symbols-outlined absolute -top-4 text-surface-tint" style="font-variation-settings: 'FILL' 1;">attach_file</span>
+<h1 class="font-headline-md text-headline-md uppercase tracking-tight mt-2 text-primary">ORDER TRACKING</h1>
+<div class="font-data-mono text-data-mono text-on-surface-variant flex gap-2 mt-1">
+<span>#FT-8841</span>
+<span>|</span>
+<span>THE SMOKE HOUSE</span>
+</div>
+</div>
+<!-- Hero Countdown -->
+<div class="px-6 py-8 text-center border-b border-outline">
+<h2 class="font-data-mono text-display-xl text-primary mb-2">24 MIN</h2>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">ESTIMATED ARRIVAL</p>
+</div>
+<!-- Progress Map -->
+<div class="px-6 py-8 border-b border-outline relative">
+<div class="h-[2px] bg-primary w-full absolute top-1/2 left-0 -translate-y-1/2 px-6 box-border z-0">
+<div class="h-full bg-primary relative"></div>
+</div>
+<div class="flex justify-between items-center relative z-10 w-full px-4">
+<div class="flex flex-col items-center bg-surface-container-lowest p-1">
+<span class="material-symbols-outlined text-primary mb-1" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+</div>
+<div class="flex flex-col items-center bg-surface-container-lowest p-1 relative left-[10%]">
+<span class="material-symbols-outlined text-primary mb-1">takeout_dining</span>
+</div>
+<div class="flex flex-col items-center p-1 absolute left-[60%] -top-4 bg-surface-container-lowest border-2 border-primary rounded-full">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">moped</span>
+</div>
+<div class="flex flex-col items-center bg-surface-container-lowest p-1">
+<span class="material-symbols-outlined text-outline-variant mb-1">home</span>
+</div>
+</div>
+</div>
+<!-- Status Flow -->
+<div class="px-6 py-6 border-b border-outline flex justify-between items-center font-label-caps text-[10px] sm:text-xs text-on-surface-variant uppercase text-center">
+<span>FIRED</span>
+<span class="material-symbols-outlined text-[14px]">arrow_right_alt</span>
+<span>PREPARING</span>
+<span class="material-symbols-outlined text-[14px]">arrow_right_alt</span>
+<span class="text-on-error-container font-bold border-2 border-on-error-container rounded-[2px] px-1 py-0.5 transform -rotate-2 relative z-10 before:absolute before:inset-0 before:border-2 before:border-on-error-container before:rounded-[4px] before:transform before:rotate-3 before:-z-10">OUT FOR DELIVERY</span>
+<span class="material-symbols-outlined text-[14px]">arrow_right_alt</span>
+<span class="opacity-50">DELIVERED</span>
+</div>
+<!-- Rider Card -->
+<div class="p-6 border-b border-outline">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-none border border-outline overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover grayscale" data-alt="A detailed black and white stylized portrait photo of a delivery rider wearing a helmet, high contrast, gritty industrial lighting, looking professional and ready." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw3un4427FKEOQz1CvL7qS6uVobbvInEpzNSfZGoLw00YVMVBLDRprebS7eo65q9NLXNQ24X91n4yR4eLoofvVVa-lrEenZx5Bt_--pI4tGxoVkIlNDS9G4TTAKxZjh6qBFCrixQuyhtqQIEDoBXV08CKIqUVo7IXszsV2BexE8lNrqqjv1NiF_FZ7oZRd4zBNMJfFT-SKO55ClNbYiu6bjCx2p00U_-a-LGM9WA6jvygQfHX8yyAF"/>
+</div>
+<div>
+<p class="font-data-mono text-data-mono text-primary mb-1">Rider: Vikram</p>
+<p class="font-body-md text-sm text-on-surface-variant">On his way with your order</p>
+</div>
+</div>
+<button class="flex items-center justify-center p-2 border-2 border-primary bg-surface-container-lowest text-primary hover:bg-primary hover:text-on-primary transition-colors active:invert group">
+<span class="material-symbols-outlined">call</span>
+</button>
+</div>
+</div>
+<!-- Order Summary -->
+<div class="px-6 py-6 pb-12">
+<div class="font-data-mono text-sm text-outline scissors-divider mb-4">
+<span class="px-2 bg-surface-container-lowest inline-flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">content_cut</span> ORDER SUMMARY
+                    </span>
+</div>
+<div class="flex justify-between items-center mb-2 font-data-mono text-data-mono text-primary">
+<span>3 Items</span>
+<span>₹1,240</span>
+</div>
+<button class="font-body-md text-sm text-primary underline hover:text-secondary-fixed-dim transition-colors mt-2 text-left">
+                    Expand details ↓
+                </button>
+</div>
+</article>
+<!-- Help Link -->
+<div class="text-center">
+<a class="font-data-mono text-sm text-primary underline hover:text-secondary-fixed-dim transition-colors" href="#">
+                Need help?
+            </a>
+</div>
+</main>
+</body></html>

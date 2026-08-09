@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Customer Profile &amp; Settings - The Order Ticket</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Karla:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-variant": "#e5e2da",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#6b9967",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed-variant": "#5c4300",
+                        "on-primary-container": "#958b86",
+                        "surface-container-highest": "#e5e2da",
+                        "on-tertiary-fixed-variant": "#255026",
+                        "error": "#ba1a1a",
+                        "primary-fixed": "#ece0da",
+                        "inverse-on-surface": "#f4f1e8",
+                        "tertiary-fixed": "#bdf0b7",
+                        "on-tertiary-fixed": "#002204",
+                        "on-primary": "#ffffff",
+                        "on-primary-fixed-variant": "#4d4541",
+                        "on-surface": "#1c1c17",
+                        "tertiary-container": "#002e08",
+                        "tertiary": "#001602",
+                        "surface-container-high": "#ebe8df",
+                        "outline-variant": "#d0c4bd",
+                        "surface-container-low": "#f6f3ea",
+                        "on-primary-fixed": "#201a17",
+                        "inverse-surface": "#31312b",
+                        "tertiary-fixed-dim": "#a2d39c",
+                        "on-secondary-container": "#725300",
+                        "surface-tint": "#655d58",
+                        "primary": "#15100d",
+                        "on-background": "#1c1c17",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#f4be45",
+                        "error-container": "#ffdad6",
+                        "surface-bright": "#fcf9f0",
+                        "secondary-container": "#fdc74d",
+                        "primary-fixed-dim": "#cfc4be",
+                        "primary-container": "#2b2521",
+                        "surface-dim": "#dddad1",
+                        "on-secondary-fixed": "#261900",
+                        "background": "#fcf9f0",
+                        "secondary": "#7a5900",
+                        "inverse-primary": "#cfc4be",
+                        "on-error-container": "#93000a",
+                        "surface": "#fcf9f0",
+                        "secondary-fixed": "#ffdea1",
+                        "on-surface-variant": "#4d4540",
+                        "surface-container": "#f1eee5",
+                        "outline": "#7f756f"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.25rem",
+                        "xl": "0.25rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "unit": "4px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px",
+                        "gutter": "16px",
+                        "margin-desktop": "32px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Barlow Condensed"],
+                        "label-caps": ["Barlow Condensed"],
+                        "display-xl": ["Barlow Condensed"],
+                        "body-lg": ["Karla"],
+                        "data-mono": ["JetBrains Mono"],
+                        "body-md": ["Karla"],
+                        "headline-lg": ["Barlow Condensed"],
+                        "price-lg": ["JetBrains Mono"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-caps": ["14px", { "lineHeight": "1.0", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "display-xl": ["48px", { "lineHeight": "1.1", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "data-mono": ["14px", { "lineHeight": "1.4", "letterSpacing": "-0.02em", "fontWeight": "500" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "price-lg": ["20px", { "lineHeight": "1.0", "fontWeight": "700" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .zigzag-bottom {
+            clip-path: polygon(0 0, 100% 0, 100% calc(100% - 8px), calc(100% - 4px) 100%, calc(100% - 8px) calc(100% - 8px), calc(100% - 12px) 100%, calc(100% - 16px) calc(100% - 8px), calc(100% - 20px) 100%, calc(100% - 24px) calc(100% - 8px), calc(100% - 28px) 100%, calc(100% - 32px) calc(100% - 8px), calc(100% - 36px) 100%, calc(100% - 40px) calc(100% - 8px), calc(100% - 44px) 100%, calc(100% - 48px) calc(100% - 8px), calc(100% - 52px) 100%, calc(100% - 56px) calc(100% - 8px), calc(100% - 60px) 100%, calc(100% - 64px) calc(100% - 8px), calc(100% - 68px) 100%, calc(100% - 72px) calc(100% - 8px), calc(100% - 76px) 100%, calc(100% - 80px) calc(100% - 8px), calc(100% - 84px) 100%, calc(100% - 88px) calc(100% - 8px), calc(100% - 92px) 100%, calc(100% - 96px) calc(100% - 8px), calc(100% - 100px) 100%, calc(100% - 104px) calc(100% - 8px), calc(100% - 108px) 100%, calc(100% - 112px) calc(100% - 8px), calc(100% - 116px) 100%, calc(100% - 120px) calc(100% - 8px), calc(100% - 124px) 100%, calc(100% - 128px) calc(100% - 8px), calc(100% - 132px) 100%, calc(100% - 136px) calc(100% - 8px), calc(100% - 140px) 100%, calc(100% - 144px) calc(100% - 8px), calc(100% - 148px) 100%, calc(100% - 152px) calc(100% - 8px), calc(100% - 156px) 100%, calc(100% - 160px) calc(100% - 8px), calc(100% - 164px) 100%, calc(100% - 168px) calc(100% - 8px), calc(100% - 172px) 100%, calc(100% - 176px) calc(100% - 8px), calc(100% - 180px) 100%, calc(100% - 184px) calc(100% - 8px), calc(100% - 188px) 100%, calc(100% - 192px) calc(100% - 8px), calc(100% - 196px) 100%, calc(100% - 200px) calc(100% - 8px), calc(100% - 204px) 100%, calc(100% - 208px) calc(100% - 8px), calc(100% - 212px) 100%, calc(100% - 216px) calc(100% - 8px), calc(100% - 220px) 100%, calc(100% - 224px) calc(100% - 8px), calc(100% - 228px) 100%, calc(100% - 232px) calc(100% - 8px), calc(100% - 236px) 100%, calc(100% - 240px) calc(100% - 8px), calc(100% - 244px) 100%, calc(100% - 248px) calc(100% - 8px), calc(100% - 252px) 100%, calc(100% - 256px) calc(100% - 8px), calc(100% - 260px) 100%, calc(100% - 264px) calc(100% - 8px), calc(100% - 268px) 100%, calc(100% - 272px) calc(100% - 8px), calc(100% - 276px) 100%, calc(100% - 280px) calc(100% - 8px), calc(100% - 284px) 100%, calc(100% - 288px) calc(100% - 8px), calc(100% - 292px) 100%, calc(100% - 296px) calc(100% - 8px), calc(100% - 300px) 100%, calc(100% - 304px) calc(100% - 8px), calc(100% - 308px) 100%, calc(100% - 312px) calc(100% - 8px), calc(100% - 316px) 100%, calc(100% - 320px) calc(100% - 8px), calc(100% - 324px) 100%, calc(100% - 328px) calc(100% - 8px), calc(100% - 332px) 100%, calc(100% - 336px) calc(100% - 8px), calc(100% - 340px) 100%, calc(100% - 344px) calc(100% - 8px), calc(100% - 348px) 100%, calc(100% - 352px) calc(100% - 8px), calc(100% - 356px) 100%, calc(100% - 360px) calc(100% - 8px), calc(100% - 364px) 100%, calc(100% - 368px) calc(100% - 8px), calc(100% - 372px) 100%, calc(100% - 376px) calc(100% - 8px), calc(100% - 380px) 100%, calc(100% - 384px) calc(100% - 8px), calc(100% - 388px) 100%, calc(100% - 392px) calc(100% - 8px), calc(100% - 396px) 100%, calc(100% - 400px) calc(100% - 8px), calc(100% - 404px) 100%, calc(100% - 408px) calc(100% - 8px), calc(100% - 412px) 100%, calc(100% - 416px) calc(100% - 8px), calc(100% - 420px) 100%, calc(100% - 424px) calc(100% - 8px), calc(100% - 428px) 100%, calc(100% - 432px) calc(100% - 8px), calc(100% - 436px) 100%, calc(100% - 440px) calc(100% - 8px), calc(100% - 444px) 100%, calc(100% - 448px) calc(100% - 8px), calc(100% - 452px) 100%, calc(100% - 456px) calc(100% - 8px), calc(100% - 460px) 100%, calc(100% - 464px) calc(100% - 8px), calc(100% - 468px) 100%, calc(100% - 472px) calc(100% - 8px), calc(100% - 476px) 100%, calc(100% - 480px) calc(100% - 8px), calc(100% - 484px) 100%, calc(100% - 488px) calc(100% - 8px), calc(100% - 492px) 100%, calc(100% - 496px) calc(100% - 8px), calc(100% - 500px) 100%, calc(100% - 504px) calc(100% - 8px), calc(100% - 508px) 100%, calc(100% - 512px) calc(100% - 8px), calc(100% - 516px) 100%, calc(100% - 520px) calc(100% - 8px), calc(100% - 524px) 100%, calc(100% - 528px) calc(100% - 8px), calc(100% - 532px) 100%, calc(100% - 536px) calc(100% - 8px), calc(100% - 540px) 100%, calc(100% - 544px) calc(100% - 8px), calc(100% - 548px) 100%, calc(100% - 552px) calc(100% - 8px), calc(100% - 556px) 100%, calc(100% - 560px) calc(100% - 8px), calc(100% - 564px) 100%, calc(100% - 568px) calc(100% - 8px), calc(100% - 572px) 100%, calc(100% - 576px) calc(100% - 8px), calc(100% - 580px) 100%, calc(100% - 584px) calc(100% - 8px), calc(100% - 588px) 100%, calc(100% - 592px) calc(100% - 8px), calc(100% - 596px) 100%, calc(100% - 600px) calc(100% - 8px), calc(100% - 604px) 100%, calc(100% - 608px) calc(100% - 8px), calc(100% - 612px) 100%, calc(100% - 616px) calc(100% - 8px), calc(100% - 620px) 100%, calc(100% - 624px) calc(100% - 8px), calc(100% - 628px) 100%, calc(100% - 632px) calc(100% - 8px), calc(100% - 636px) 100%, calc(100% - 640px) calc(100% - 8px), calc(100% - 644px) 100%, calc(100% - 648px) calc(100% - 8px), calc(100% - 652px) 100%, calc(100% - 656px) calc(100% - 8px), calc(100% - 660px) 100%, calc(100% - 664px) calc(100% - 8px), calc(100% - 668px) 100%, calc(100% - 672px) calc(100% - 8px), calc(100% - 676px) 100%, calc(100% - 680px) calc(100% - 8px), calc(100% - 684px) 100%, calc(100% - 688px) calc(100% - 8px), calc(100% - 692px) 100%, calc(100% - 696px) calc(100% - 8px), calc(100% - 700px) 100%, calc(100% - 704px) calc(100% - 8px), calc(100% - 708px) 100%, calc(100% - 712px) calc(100% - 8px), calc(100% - 716px) 100%, calc(100% - 720px) calc(100% - 8px), calc(100% - 724px) 100%, calc(100% - 728px) calc(100% - 8px), calc(100% - 732px) 100%, calc(100% - 736px) calc(100% - 8px), calc(100% - 740px) 100%, calc(100% - 744px) calc(100% - 8px), calc(100% - 748px) 100%, calc(100% - 752px) calc(100% - 8px), calc(100% - 756px) 100%, calc(100% - 760px) calc(100% - 8px), calc(100% - 764px) 100%, calc(100% - 768px) calc(100% - 8px), calc(100% - 772px) 100%, calc(100% - 776px) calc(100% - 8px), calc(100% - 780px) 100%, calc(100% - 784px) calc(100% - 8px), calc(100% - 788px) 100%, calc(100% - 792px) calc(100% - 8px), calc(100% - 796px) 100%, calc(100% - 800px) calc(100% - 8px), 0 calc(100% - 8px));
+        }
+        
+        input:checked + div .toggle-dot {
+            transform: translateX(100%);
+        }
+        input:checked + div {
+            background-color: theme('colors.secondary-container');
+        }
+    </style>
+</head>
+<body class="bg-surface-container-low text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- Expo Rail Top Nav -->
+<header class="bg-surface-container-low dark:bg-surface-container-highest w-full top-0 sticky border-b-2 border-primary dark:border-primary-fixed z-50">
+<div class="flex justify-between items-center px-margin-desktop py-2 w-full max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<span class="font-display-xl text-display-xl text-primary dark:text-primary-fixed tracking-tighter uppercase">THE ORDER TICKET</span>
+</div>
+<nav class="hidden md:flex items-end h-full pt-4 space-x-1">
+<a class="relative px-6 py-2 border-x-2 border-t-2 border-primary bg-surface-container-low hover:bg-surface-variant transition-colors cursor-pointer group text-on-surface-variant opacity-70 mt-4" href="#">
+<span class="absolute -top-3 left-1/2 -translate-x-1/2 text-surface-tint"><span class="material-symbols-outlined" style="font-size: 20px; font-variation-settings: 'FILL' 1;">attach_file</span></span>
+<span class="font-headline-md text-headline-md tracking-tight uppercase">LIVE ORDERS</span>
+</a>
+<a class="relative px-6 py-2 border-x-2 border-t-2 border-primary bg-surface-container-low hover:bg-surface-variant transition-colors cursor-pointer group text-on-surface-variant opacity-70 mt-4" href="#">
+<span class="absolute -top-3 left-1/2 -translate-x-1/2 text-surface-tint"><span class="material-symbols-outlined" style="font-size: 20px; font-variation-settings: 'FILL' 1;">attach_file</span></span>
+<span class="font-headline-md text-headline-md tracking-tight uppercase">HISTORY</span>
+</a>
+<a class="relative px-6 py-3 border-x-2 border-t-2 border-primary bg-surface text-on-surface font-bold mt-2 z-10 shadow-sm" href="#" style="border-bottom: 2px solid theme('colors.surface'); margin-bottom: -2px;">
+<span class="absolute -top-4 left-1/2 -translate-x-1/2 text-primary"><span class="material-symbols-outlined" style="font-size: 24px; font-variation-settings: 'FILL' 1;">attach_file</span></span>
+<span class="font-headline-md text-headline-md tracking-tight uppercase text-secondary">PROFILE</span>
+</a>
+</nav>
+<div class="flex items-center gap-4 text-primary">
+<button class="hover:bg-surface-variant p-2 transition-colors cursor-pointer active:translate-y-0.5">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="hover:bg-surface-variant p-2 transition-colors cursor-pointer active:translate-y-0.5">
+<span class="material-symbols-outlined">settings</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Layout -->
+<main class="flex-1 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-8 md:py-12">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<!-- Left Column: Sidebar / Profile -->
+<div class="md:col-span-4 lg:col-span-3">
+<div class="bg-surface-container-lowest border border-outline-variant p-6 flex flex-col items-center text-center zigzag-bottom pb-12 relative">
+<!-- Decorative Tape -->
+<div class="absolute -top-2 -left-2 w-12 h-6 bg-surface-tint opacity-20 transform -rotate-12"></div>
+<div class="w-32 h-32 rounded-full border-4 border-primary overflow-hidden mb-4 bg-surface-variant">
+<img class="w-full h-full object-cover grayscale" data-alt="A highly detailed close-up portrait of a professional chef in a crisp white uniform, set against a stark, minimalist light-mode industrial kitchen background. High contrast, sharp focus, utilitarian aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAaL1bJNNlbUbs83WSpDcRKcmZXQ5oRAAcnnaOsi-nkxaSryQxT6BkSqzLdQT0AHEEFCQq_yV3dn0lyC54DO0On81quN9jWrBsqLiQzuekF7rhLsO9ZU16xXvcM1LPveilORR_McDkkMZbUJVVwHMm2sI5pcejil1GQQ5EpWk8rvHqrpeN944UIUfmicHnIZqQiCHUCjCpx-mFwDNKFlDnWpGJMFIHrj7DY5gC7F2BQ582TugX2lipJ"/>
+</div>
+<h1 class="font-display-xl text-display-xl uppercase text-primary mb-1">CHEF VIKRAM</h1>
+<p class="font-data-mono text-data-mono text-on-surface-variant mb-4">vikram@kitchen.com</p>
+<div class="border-t border-b border-primary w-full py-2 my-2">
+<p class="font-data-mono text-data-mono text-primary text-sm uppercase">Member since: OCT 2023</p>
+</div>
+<div class="w-full flex justify-between px-4 mt-4 text-surface-tint">
+<span class="material-symbols-outlined">qr_code_2</span>
+<span class="material-symbols-outlined">barcode</span>
+</div>
+</div>
+</div>
+<!-- Right Column: Main Content -->
+<div class="md:col-span-8 lg:col-span-9 flex flex-col gap-10">
+<!-- Section 1: Saved Addresses -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<div class="h-px bg-outline-variant flex-1"></div>
+<span class="material-symbols-outlined text-outline-variant text-sm">content_cut</span>
+<h2 class="font-data-mono text-data-mono text-outline-variant tracking-widest uppercase">— ✂ SAVED ADDRESSES —</h2>
+<div class="h-px bg-outline-variant flex-1"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Address Card 1 -->
+<div class="bg-surface-container-lowest border border-[#E4DFD3] p-4 flex flex-col relative zigzag-bottom pb-8">
+<div class="absolute top-0 right-0 bg-primary text-on-primary font-label-caps text-label-caps px-2 py-1">DEFAULT</div>
+<div class="flex items-start gap-3 mb-4">
+<span class="material-symbols-outlined text-primary mt-1">home</span>
+<div>
+<h3 class="font-headline-md text-headline-md uppercase text-primary">Home</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">123 Culinary Ave, Apt 4B<br/>New York, NY 10001</p>
+</div>
+</div>
+<div class="mt-auto flex gap-2 border-t border-outline-variant pt-3">
+<button class="flex-1 border-2 border-[#6B6259] text-[#6B6259] font-label-caps text-label-caps uppercase py-2 hover:bg-[#6B6259] hover:text-white transition-colors">EDIT</button>
+<button class="flex-1 border-2 border-[#6B6259] text-[#6B6259] font-label-caps text-label-caps uppercase py-2 hover:bg-[#6B6259] hover:text-white transition-colors">DELETE</button>
+</div>
+</div>
+<!-- Address Card 2 -->
+<div class="bg-surface-container-lowest border border-[#E4DFD3] p-4 flex flex-col relative zigzag-bottom pb-8">
+<div class="flex items-start gap-3 mb-4">
+<span class="material-symbols-outlined text-primary mt-1">work</span>
+<div>
+<h3 class="font-headline-md text-headline-md uppercase text-primary">Office</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">88 Prep Station Blvd<br/>Kitchen District, NY 10002</p>
+</div>
+</div>
+<div class="mt-auto flex gap-2 border-t border-outline-variant pt-3">
+<button class="flex-1 border-2 border-[#6B6259] text-[#6B6259] font-label-caps text-label-caps uppercase py-2 hover:bg-[#6B6259] hover:text-white transition-colors">EDIT</button>
+<button class="flex-1 border-2 border-[#6B6259] text-[#6B6259] font-label-caps text-label-caps uppercase py-2 hover:bg-[#6B6259] hover:text-white transition-colors">DELETE</button>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full bg-secondary-container text-on-secondary-container border-2 border-primary font-headline-md text-headline-md uppercase py-3 hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add</span> ADD ADDRESS
+                    </button>
+</section>
+<!-- Section 2: Payment Methods -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<div class="h-px bg-outline-variant flex-1"></div>
+<span class="material-symbols-outlined text-outline-variant text-sm">content_cut</span>
+<h2 class="font-data-mono text-data-mono text-outline-variant tracking-widest uppercase">— ✂ PAYMENT METHODS —</h2>
+<div class="h-px bg-outline-variant flex-1"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Payment Card -->
+<div class="bg-surface-container-lowest border border-[#E4DFD3] p-5 flex items-center justify-between">
+<div class="flex items-center gap-4">
+<div class="w-12 h-8 border border-outline-variant flex items-center justify-center bg-surface-variant text-primary font-bold">
+                                    VISA
+                                </div>
+<div class="font-data-mono text-data-mono text-primary text-lg">
+                                    •••• •••• •••• 4582
+                                </div>
+</div>
+<button class="text-[#6B6259] hover:text-primary transition-colors">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</div>
+<button class="mt-4 w-full border-2 border-primary text-primary bg-transparent font-headline-md text-headline-md uppercase py-3 hover:bg-primary hover:text-white transition-colors flex items-center justify-center gap-2">
+<span class="material-symbols-outlined">add</span> ADD PAYMENT METHOD
+                    </button>
+</section>
+<!-- Section 3: Preferences -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<div class="h-px bg-outline-variant flex-1"></div>
+<span class="material-symbols-outlined text-outline-variant text-sm">content_cut</span>
+<h2 class="font-data-mono text-data-mono text-outline-variant tracking-widest uppercase">— ✂ PREFERENCES —</h2>
+<div class="h-px bg-outline-variant flex-1"></div>
+</div>
+<div class="bg-surface-container-lowest border border-[#E4DFD3] p-6 space-y-8">
+<!-- Toggle -->
+<div class="flex items-center justify-between">
+<div>
+<h3 class="font-headline-md text-headline-md uppercase text-primary">Veg-Only Mode</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">Filter out all non-vegetarian options across the menu.</p>
+</div>
+<label class="flex items-center cursor-pointer relative">
+<input checked="" class="sr-only" type="checkbox"/>
+<div class="w-14 h-8 bg-surface-variant border-2 border-primary rounded-none transition-colors"></div>
+<div class="toggle-dot absolute left-1 top-1 bg-primary w-6 h-6 border-2 border-primary rounded-none transition-transform"></div>
+</label>
+</div>
+<div class="h-px w-full bg-outline-variant border-dashed border-t"></div>
+<!-- Spice Level -->
+<div>
+<h3 class="font-headline-md text-headline-md uppercase text-primary mb-2">Default Spice Level</h3>
+<div class="flex gap-4">
+<button class="w-16 h-16 border-2 border-primary flex items-center justify-center hover:bg-surface-variant transition-colors group">
+<span class="material-symbols-outlined text-outline-variant group-hover:text-primary">local_fire_department</span>
+</button>
+<button class="w-16 h-16 border-2 border-primary flex items-center justify-center hover:bg-surface-variant transition-colors group bg-primary text-white">
+<div class="flex">
+<span class="material-symbols-outlined">local_fire_department</span>
+<span class="material-symbols-outlined">local_fire_department</span>
+</div>
+</button>
+<button class="w-16 h-16 border-2 border-primary flex items-center justify-center hover:bg-surface-variant transition-colors group">
+<div class="flex text-outline-variant group-hover:text-primary">
+<span class="material-symbols-outlined -mr-2">local_fire_department</span>
+<span class="material-symbols-outlined -mr-2 text-xl mt-1">local_fire_department</span>
+<span class="material-symbols-outlined">local_fire_department</span>
+</div>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Account Actions -->
+<section>
+<div class="flex items-center gap-4 mb-6">
+<div class="h-px bg-outline-variant flex-1"></div>
+<span class="material-symbols-outlined text-outline-variant text-sm">content_cut</span>
+<h2 class="font-data-mono text-data-mono text-outline-variant tracking-widest uppercase">— ✂ ACCOUNT —</h2>
+<div class="h-px bg-outline-variant flex-1"></div>
+</div>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="flex-1 border-2 border-[#6B6259] text-[#6B6259] font-headline-md text-headline-md uppercase py-3 hover:bg-[#6B6259] hover:text-white transition-colors">
+                            CHANGE PASSWORD
+                        </button>
+<button class="flex-1 border-2 border-[#A83A2C] text-[#A83A2C] font-headline-md text-headline-md uppercase py-3 hover:bg-[#A83A2C] hover:text-white transition-colors">
+                            LOGOUT
+                        </button>
+</div>
+</section>
+</div>
+</div>
+</main>
+</body></html>
